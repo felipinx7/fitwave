@@ -9,6 +9,9 @@ export const Footer = styled.footer`
 
   @media ${Breakpoints.lg} {
     transform: translateY(-5rem);
+    height: auto;
+    margin-top: -5rem;
+    transform: translateY(0rem);
   }
 `;
 
