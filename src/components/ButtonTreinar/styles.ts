@@ -16,7 +16,6 @@ export const ButtonTreinar = styled.button`
   cursor: pointer;
   box-shadow: 0 0 20px 5px rgba(50, 205, 50, 0.7);
   transition: box-shadow 0.3s ease;
-  white-space: nowrap;
   margin-top: 1rem;
   z-index: 1;
 

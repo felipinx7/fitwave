@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { Breakpoints } from "../../../../styles/BreakPoints";
 
 export const SectionPrincipal = styled.main`
+  position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 `;
 
 export const ImagemFundoIncialNotebook = styled.img`
@@ -53,7 +53,7 @@ export const WraperTextos = styled.div`
   max-width: 1240px;
   margin: 0 auto;
   width: 88%;
-  height: 85%;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -61,6 +61,7 @@ export const WraperTextos = styled.div`
   transition: all 0.3s;
 
   @media ${Breakpoints.lg} {
+    min-height: 80vh;
     text-align: center;
     justify-content: flex-end;
     align-items: center;

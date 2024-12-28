@@ -15,7 +15,7 @@ export const CardBeneficios = styled.article`
 
 
   @media ${Breakpoints.bg}{
-    max-width: 800px;
+    max-width: 750px  ;
   }
   @media ${Breakpoints.md} {
     max-width: 850px;
@@ -40,6 +40,7 @@ export const TituloBeneficio = styled.h3`
 export const SpanTitulo = styled.span`
   font-family: "Goldman", sans-serif;
   color: #05714f;
+  word-break: break-word;
 `;
 
 export const DescricaoBeneficio = styled.p`

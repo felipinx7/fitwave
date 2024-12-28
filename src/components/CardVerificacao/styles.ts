@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const CardVerificacao = styled.div`
-    max-width: 300px;
+    max-width: 500px;
     width: 100%;
-    height: 31px;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.8rem;
     align-items: center;
 `
 
@@ -17,5 +16,5 @@ export const TextoVerificacao = styled.p`
     font-weight: 400;
     color: white;
     letter-spacing: 5px;
-    white-space: nowrap;
+    font-size: 20px;
 `

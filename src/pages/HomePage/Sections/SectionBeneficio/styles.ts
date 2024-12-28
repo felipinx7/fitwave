@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import FundoListras from "../../../../assets/img/Textura-linhas.png";
-import ImagemMulher from "../../../../assets/img/imagem-mulher.png";
 import { Breakpoints } from "../../../../styles/BreakPoints";
 
 export const SectionBeneficio = styled.section`
   background-color: black;
   background-image: url(${FundoListras});
   width: 100%;
-  height: 120vh;
+  height: auto;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -15,10 +14,11 @@ export const SectionBeneficio = styled.section`
   align-items: center;
   gap: 5rem;
 
+
   @media ${Breakpoints.md} {
     position: relative;
-    min-height: 150vh;
     top: -5rem;
+    gap: 8rem;
   }
 `;
 
@@ -54,14 +54,23 @@ export const WraperMain = styled.div`
   height: 70%;
   display: flex;
   margin: 0 auto;
+
+  @media ${Breakpoints.bg} {
+    gap: 5rem;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
-export const WraperText = styled.div``;
+export const WraperText = styled.div`
+  padding: 0 2rem;
+`;
 
 export const WraperCardVerificacao = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0 2rem;
 `;
 
 export const WraperTextoeCard = styled.div`
@@ -69,13 +78,25 @@ export const WraperTextoeCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media ${Breakpoints.lg} {
+    width: 88%;
+  }
+  @media ${Breakpoints.md} {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
 `;
 
 export const WraperMulher = styled.div`
   width: 50%;
-  background-image: url(${ImagemMulher});
-  background-size: cover;
-  background-color: transparent;
+
+  @media ${Breakpoints.lg} {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 //Componenetes das divs acimas
@@ -90,9 +111,24 @@ export const TextoIdeal = styled.h2`
   font-weight: 800;
   font-family: "Goldman", sans-serif;
   font-size: 42px;
+
+  @media ${Breakpoints.lg} {
+    text-align: left;
+  }
+  @media ${Breakpoints.md} {
+    font-size: 50px;
+  }
 `;
 
 export const SpanIdeal = styled.span`
   font-family: "Goldman", sans-serif;
   color: #00d939;
+`;
+export const ImagemMulher = styled.img`
+  width: 100%;
+
+  @media ${Breakpoints.md} {
+    transform: translateX(3rem);
+  }
+
 `;

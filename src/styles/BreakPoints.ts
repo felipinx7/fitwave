@@ -11,7 +11,7 @@ export const Sizes = {
     xs: `(max-width: ${Sizes.xs})`,
     sm: `(max-width: ${Sizes.sm})`,
     md: `(max-width: ${Sizes.md})`,
-    lg: `(max-width: ${Sizes.lg})`,
+    lg: `(max-width: ${Sizes.lg})`, 
     bg: `(max-width: ${Sizes.bg})`
   };
   

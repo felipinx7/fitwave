@@ -5,6 +5,8 @@ import { BiTimer } from "react-icons/bi";
 import { FaDumbbell } from "react-icons/fa6";
 import { FaHandshakeSlash } from "react-icons/fa";
 import { CardVerificacao } from "../../../../components/CardVerificacao/CardVerificacao";
+import ImagemMulher from "../../../../assets/img/imagem-mulher.png";
+
 
 export const SectionBeneficio: React.FC = () => {
   return (
@@ -50,7 +52,9 @@ export const SectionBeneficio: React.FC = () => {
             <CardVerificacao textoverificacao="Desperte sua melhor versão." />
           </S.WraperCardVerificacao>
         </S.WraperTextoeCard>
-        <S.WraperMulher/>
+        <S.WraperMulher>
+          <S.ImagemMulher src={ImagemMulher}/>
+        </S.WraperMulher>
       </S.WraperMain>
     </S.SectionBeneficio>
   );

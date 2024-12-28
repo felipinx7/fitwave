@@ -10,8 +10,9 @@ export const GlobalStyles = createGlobalStyle`
     body{
         font-family: 'Poppins', sans-serif;
         font-family: "Goldman", serif;
-        overflow-x: hidden;
+        overflow: hidden;
     }
+
     html{
         overflow-x: hidden;
     }
