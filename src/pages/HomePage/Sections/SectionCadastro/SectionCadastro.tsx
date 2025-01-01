@@ -29,7 +29,7 @@ export const SectionCadastro: React.FC = () => {
     setPhone(value);
   };
   return (
-    <S.SectionCadastro>
+    <S.SectionCadastro id="cadastro">
       <S.ContainerInfoPrincipais>
         <S.ContainerDaImagem>
           <S.ContainerImagem>
@@ -59,14 +59,15 @@ export const SectionCadastro: React.FC = () => {
           </S.ContainerTextosForms>
           <S.Formulario>
             <S.LabelCadastro>Nome</S.LabelCadastro>
-            <S.InputCadastro type="text" placeholder="Nome completo" />
+            <S.InputCadastro type="text" placeholder="Nome completo" required/>
             <S.LabelCadastro>E-mail</S.LabelCadastro>
-            <S.InputCadastro type="email" placeholder="Informe seu e-mail" />
+            <S.InputCadastro type="email" placeholder="Informe seu e-mail" required/>
             <S.LabelCadastro>Contato Telofónico</S.LabelCadastro>
             <S.InputCadastro
               type="tel"
               placeholder="Informe seu contato."
               value={phone}
+              required
               onChange={handlePhoneChange}
             />
             <S.ContanierButton>

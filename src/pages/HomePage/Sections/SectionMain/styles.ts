@@ -47,6 +47,10 @@ export const TextMain = styled.h1`
   color: white;
   font-size: 34px;
   font-weight: 800;
+
+  @media ${Breakpoints.sm} {
+    font-size: 20px;
+  }
 `;
 
 export const WraperTextos = styled.div`
@@ -77,4 +81,8 @@ export const Paragrafo = styled.p`
   font-size: 26px;
   color: white;
   font-weight: 400;
+
+  @media ${Breakpoints.sm} {
+    font-size: 15px;
+  }
 `;

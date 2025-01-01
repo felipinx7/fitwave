@@ -3,7 +3,7 @@ import * as S from "./styles"
 import ImagemFundoNotebook from "../../../../assets/img/img-fundo-main.png"
 import { Header } from "../../../../components/Header/Header";
 import { ButtonTreinar } from "../../../../components/ButtonTreinar/ButtonTreinar";
-import ImagemFundoMobile from "../../../../assets/img/fundo-main-celular.png"
+import ImagemFundoMobile from "../../../../assets/img/fundo-celular.svg"
 
 export const SectionMain: React.FC = () => {
   return(

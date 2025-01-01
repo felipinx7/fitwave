@@ -4,7 +4,7 @@ import { CardPreco } from "../../../../components/CardPreco/CardPreco";
 
 export const SectionPreco: React.FC = () => {
   return (
-    <S.SectionPreco>
+    <S.SectionPreco id="Preco">
       <S.ContainerInfoPrincipal>
         <S.ContainerTexto>
           <S.TextPrincipal>TUDO ISSO <br /><S.SpantextoEsta>ESTÁ  AO SEU <br /> ALCANCE </S.SpantextoEsta> POR:</S.TextPrincipal>

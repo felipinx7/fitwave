@@ -6,7 +6,7 @@ import LogoFitwave from "../../../../assets/img/Logo-Monocromatica-fitwave.png"
 
 export const Footer: React.FC = () =>{
     return(
-        <S.Footer>
+        <S.Footer id="Horario">
             <S.WraperMain>
         <S.WraperRedesSociais>
           <S.ImgLogo src={LogoFitwave} alt="LOGO" />

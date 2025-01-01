@@ -9,7 +9,7 @@ import { FaCalendarCheck } from "react-icons/fa";
 export const SectionPlanos: React.FC = () => {
   return (
     <>
-      <S.SectionDePlanos id="plano">
+      <S.SectionDePlanos id="Plano">
         <S.DivEnglobadoraDoTextoeCard>
           <S.ContainerTextosPrincipais>
             <S.TextoFitwave>FIT WAVE</S.TextoFitwave>
