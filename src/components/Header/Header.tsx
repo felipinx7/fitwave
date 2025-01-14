@@ -36,14 +36,11 @@ export const Header: React.FC = () => {
     );
   };
 
-  const HandleLinkLoginPage = useNavigate()
+  const navigate = useNavigate();
 
-  const HandleLinkLogin = () =>{
-  HandleLinkLoginPage("/login")
-  }
-
-
-
+  const LinkPagePreloade = () => {
+    navigate("/telaCarregamento");
+  };
 
   return (
     <>
@@ -60,8 +57,10 @@ export const Header: React.FC = () => {
           ))}
         </S.NavBar>
         <S.WraperButtons>
-          <S.ButtonAcessar onClick={HandleLinkLogin}>ACESSAR</S.ButtonAcessar>
-          <S.ButtonEntrarContato  onClick={HandleLinkWhats}>ENTRAR EM CONTATO</S.ButtonEntrarContato>
+          <S.ButtonAcessar onClick={LinkPagePreloade}>ACESSAR</S.ButtonAcessar>
+          <S.ButtonEntrarContato onClick={HandleLinkWhats}>
+            ENTRAR EM CONTATO
+          </S.ButtonEntrarContato>
         </S.WraperButtons>
       </S.Header>
       <HeaderMobile />

@@ -35,7 +35,8 @@ export const ContainerDoLogin = styled.div`
     padding: 4rem 1rem 9rem 1rem;
   }
   @media ${Breakpoints.sm} {
-    padding: 4rem 1rem 3rem 1rem;
+    gap: 0;
+    padding: 2rem 1rem 0rem 1rem
   }
 `;
 
@@ -79,8 +80,13 @@ export const TextBoasVindas = styled.h2`
   }
 
   @media ${Breakpoints.sm} {
-    font-size: 40px;
+    font-size: 35px;
   }
+
+  @media ${Breakpoints.xs} {
+    font-size: 25px;
+  }
+  
 `;
 
 export const SpanBoasVindas = styled.span`
@@ -95,7 +101,7 @@ export const ParagrafoInformarDados = styled.p`
   font-weight: 400;
 
   @media ${Breakpoints.sm} {
-    font-size: 20px;
+    font-size: 15px;
   }
 `;
 
@@ -172,6 +178,9 @@ export const ContainerInformacaoParteBaixo = styled.div`
   @media ${Breakpoints.lg} {
     padding-top: 3rem;
   }
+  @media ${Breakpoints.sm} {
+    padding-top: 1rem;
+  }
 `;
 
 export const TextNaotemconta = styled.span`
@@ -182,6 +191,12 @@ export const TextNaotemconta = styled.span`
   display: flex;
   gap: 0.5rem;
   justify-content: center;
+
+  @media ${Breakpoints.sm}{
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+  }
 `;
 
 export const SpanNaoTemConta = styled.a`

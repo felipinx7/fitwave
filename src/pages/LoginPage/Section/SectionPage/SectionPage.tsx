@@ -4,6 +4,7 @@ import ImagemMulher from "../../../../assets/img/imgem-mulher-login.svg";
 import { FaLock } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 export const SectionPage: React.FC = () => {
   const [Showpassword, setShowpassword] = useState(false);
@@ -11,6 +12,13 @@ export const SectionPage: React.FC = () => {
   const handlePassword = () => {
     setShowpassword(!Showpassword);
   };
+
+  const navigate = useNavigate()
+
+  const LinkParaPagePreload = () =>{
+    navigate("/telaCarregamento")
+  }
+
 
   return (
     <S.SectionPage>
@@ -23,7 +31,17 @@ export const SectionPage: React.FC = () => {
             Adicione seus dados a baixo:
           </S.ParagrafoInformarDados>
         </S.ContainerTextosPrincipais>
-        <S.FormularioLogin>
+        <S.FormularioLogin
+        onSubmit={(e) =>{
+          e.preventDefault()
+          const form = e.target as HTMLFormElement
+          if(form.checkValidity()){
+            LinkParaPagePreload()
+          }
+          
+        }}
+        
+        >
           <S.LabelLogin>E-mail</S.LabelLogin>
           <S.containerInputs>
             <S.InputLogin

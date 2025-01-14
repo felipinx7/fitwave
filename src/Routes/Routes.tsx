@@ -1,27 +1,102 @@
 import React, { useState } from "react";
-import App from "../App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { LoginPage } from "../pages/LoginPage";
 import { HomePage } from "../pages/HomePage";
 import { LoginInfo } from "../pages/LoginInfo";
+import { SectionSexo } from "../pages/CadastroCorpo/Sections/SectionSexo/Cadastrosexo";
+import { SectionCorpo } from "../pages/CadastroCorpo";
+import { SectionParteCorpoFocar } from "../pages/CadastroCorpo/Sections/SectionParteCorpoFocar/SectionParteCorpoFocar";
+import { SectionObjetivos } from "../pages/CadastroCorpo/Sections/SectionObetivo/SectionObjetivo";
+import { SectionFlexoes } from "../pages/CadastroCorpo/Sections/SectionFlexoes/SectionFlexoes";
+import { SectionDiasSemana } from "../pages/CadastroCorpo/Sections/SectionDiasSemana/SectionDiasSemana";
+import { SectionPesoAltura } from "../pages/CadastroCorpo/Sections/SectionPesoAltura/SectionPesoAltura";
+import { SectionPlanoPronto } from "../pages/CadastroCorpo/Sections/SectionPlanoPronto/SectionPlanoPronto";
+import { SectionDiaPagamento } from "../pages/CadastroCorpo/Sections/SectionDiaPagamento/SectionDiaPagamento";
+import { SectionCadastroFinalizado } from "../pages/CadastroCorpo/Sections/SectionCadastroFinalizado/SectionCadastroFinalizado";
+import { SectionTelaCarregamento } from "../pages/CadastroCorpo/Sections/TelaDeCarregamento/TelaDeCarregamento";
+import { PageAdministradora } from "../pages/PageAdministrador";
+import NotificationBell from "../components/texte/texte";
 
 export const Routes = () => {
+  const [formData, setFormData] = useState({
+    sexo: "",
+  });
+
+  const handleSexChange = (sexo: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      sexo,
+    }));
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: <HomePage />,
     },
     {
-      path: "/login",
+      path: "login",
       element: <LoginPage />,
     },
     {
-      path: "/loginInfo",
-      element: <LoginInfo/>
+      path: "loginInfo",
+      element: <LoginInfo />,
+    },
+    {
+      path: "telaCarregamento",
+      element: <SectionTelaCarregamento/>
+    },
+    {
+      path: "CadastroCorpo",
+      element: <SectionCorpo/>,
+    },
+    {
+      path: "sexo",
+      element: <SectionSexo formData={formData} onSexChange={handleSexChange} />,
+    },
+    {
+      path: "focoMuscular",
+      element: <SectionParteCorpoFocar />,
+    },
+    {
+      path: "Objetivos",
+      element: <SectionObjetivos/>
+    },
+    {
+      path: "flexao",
+      element: <SectionFlexoes/>
+    },
+    {
+      path: "treinoDiaSemana",
+      element: <SectionDiasSemana/>
+    },
+    {
+      path: "pesoAltura",
+      element: <SectionPesoAltura/>
+    },
+    {
+      path: "plano",
+      element: <SectionPlanoPronto/>
+    },
+    {
+      path: "diaPagamento",
+      element: <SectionDiaPagamento/>
+    },
+    {
+      path: "FinalizarCadastro",
+      element: <SectionCadastroFinalizado/>
+    },
+
+    {
+      path: "PageAdmin",
+      element: <PageAdministradora/>
+    },
+    {
+      path: "teste",
+      element: <NotificationBell/>
     }
   ]);
 
   return <RouterProvider router={router} />;
 };
 
-export default Routes;
