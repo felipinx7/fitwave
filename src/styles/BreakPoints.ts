@@ -4,6 +4,7 @@ export const Sizes = {
     md: "768px",  // Medium (tablets)
     lg: "992px",  // Large (laptops menores)
     bg: "1080px", // Full HD (telas padrão)
+    gg: "1420px", // Muito Grande
   };
   
 
@@ -12,6 +13,7 @@ export const Sizes = {
     sm: `(max-width: ${Sizes.sm})`,
     md: `(max-width: ${Sizes.md})`,
     lg: `(max-width: ${Sizes.lg})`, 
-    bg: `(max-width: ${Sizes.bg})`
+    bg: `(max-width: ${Sizes.bg})`,
+    gg: `(max-width: ${Sizes.gg})`
   };
   

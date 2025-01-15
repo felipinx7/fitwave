@@ -10,7 +10,7 @@ export const ContainerInfo = styled.div<ContainerInfoProps>`
   height: calc(100vh - 146.44px);
   background-color: none;
   z-index: 0;
-  position: relative;
+  position: absolute;
   overflow-y: auto;
   display: ${(props) => (props.showCardInfo ? "block" : "none")};
 `;
