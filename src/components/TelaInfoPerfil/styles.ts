@@ -5,22 +5,56 @@ interface ContainerInfoProps {
   showCardInfo: boolean;
 }
 
-export const ContainerInfo = styled.div<ContainerInfoProps>`
-  width: 100%;
-  height: calc(100vh - 146.44px);
-  background-color: none;
-  z-index: 0;
-  position: absolute;
-  overflow-y: auto;
-  display: ${(props) => (props.showCardInfo ? "block" : "none")};
-`;
-
 interface CardInfoprops {
   Tema: "Perfil" | "CardFuncionario";
 }
 
-export const CardInfo = styled.div<CardInfoprops>`
+export const ContainerInfo = styled.div<ContainerInfoProps & CardInfoprops>`
   width: 100%;
+  height: calc(100vh - 146.44px);
+  background-color: none;
+  z-index: 0;
+  position: ${({ Tema }) => {
+    switch (Tema) {
+      case "Perfil":
+        return "relative";
+      case "CardFuncionario":
+        return "absolute";
+    }
+  }};
+  overflow-y: auto;
+  display: ${(props) => (props.showCardInfo ? "block" : "none")};
+  bottom: 0;
+  transform: ${({ Tema }) => {
+    switch (Tema) {
+      case "Perfil":
+        return "translate(0, 0)";
+      case "CardFuncionario":
+        return "translate(-0.5rem, 16rem)";
+    }
+  }};
+
+  @media ${Breakpoints.lg} {
+    transform: ${({ Tema }) => {
+      switch (Tema) {
+        case "Perfil":
+          return "translate(0, 0)";
+        case "CardFuncionario":
+          return "translate(-0.5rem, 14rem)";
+      }
+    }};
+  }
+`;
+
+export const CardInfo = styled.div<CardInfoprops>`
+  width: ${({ Tema }) => {
+    switch (Tema) {
+      case "Perfil":
+        return "100%";
+      case "CardFuncionario":
+        return "82.4%";
+    }
+  }};
   height: auto;
   overflow: hidden;
   display: flex;
@@ -39,7 +73,8 @@ export const CardInfo = styled.div<CardInfoprops>`
   position: relative;
 
   @media ${Breakpoints.lg} {
-    height: auto;
+    width: 100%;
+    height: 100%;
     padding: 2rem 0;
   }
 `;
@@ -384,6 +419,27 @@ export const ContainerLapis = styled.div`
   width: 5rem;
   height: 5rem;
   border-radius: 0 0 42.79px 0;
+  background-color: #00d939;
+  z-index: 1;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(2, 180, 50);
+  }
+`;
+
+export const ContainerFecharContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0 0 0 42.79px;
   background-color: #00d939;
   z-index: 1;
   font-size: 3rem;

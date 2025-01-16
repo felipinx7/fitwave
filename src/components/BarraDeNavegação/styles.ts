@@ -19,6 +19,7 @@ export const CardColaboradorECliente = styled.div`
 
   &.active {
     display: flex;
+    height: auto;
     transform: translate(0, 9.1rem);
   }
 `;
@@ -126,6 +127,7 @@ export const FormColaborador = styled.form<ContainerParaInputCardColaborador>`
 
   &::-webkit-scrollbar {
     width: 12px;
+    z-index: 99999;
     height: 12px;
   }
 
@@ -156,6 +158,7 @@ export const FormCliente = styled.form<ContainerParaInputCardColaborador>`
   &::-webkit-scrollbar {
     width: 12px;
     height: 12px;
+    z-index: 99999;
   }
 
   &::-webkit-scrollbar-track {

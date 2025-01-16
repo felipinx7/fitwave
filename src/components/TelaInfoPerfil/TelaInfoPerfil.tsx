@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import * as S from "./styles";
 import { BsCamera } from "react-icons/bs";
 import { BiSolidPencil } from "react-icons/bi";
+import { IoClose } from "react-icons/io5";
+
+
 
 interface ShowCardInfoProps {
   showCardInfo: boolean;
   handleShowCardInfo: () => void;
   ExibirLapis: boolean;
   tema: "Perfil" | "CardFuncionario";
+  exibirFecharContainer: boolean;
 }
 
 export const TelaInfoPerfil: React.FC<ShowCardInfoProps> = (props) => {
   const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
   const [telefone, setTelefone] = useState("");
+  const [FecharContainerCard, setFecharContainerCard] = useState(false)
 
   const handleFotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -60,14 +65,22 @@ export const TelaInfoPerfil: React.FC<ShowCardInfoProps> = (props) => {
     setisDisabled(!isDisabled);
   };
 
+  const handleFechamentoContainerCard = () =>{
+    props.handleShowCardInfo()
+  }
   return (
-    <S.ContainerInfo showCardInfo={props.showCardInfo}>
+    <S.ContainerInfo showCardInfo={props.showCardInfo} Tema={props.tema}>
       {props.ExibirLapis && (
         <S.ContainerLapis onClick={HandlereadOnlyInput}>
           <BiSolidPencil />
         </S.ContainerLapis>
       )}
-      <S.CardInfo Tema={props.tema}>
+      {props.exibirFecharContainer &&(
+        <S.ContainerFecharContainer onClick={handleFechamentoContainerCard}>
+          <IoClose/>
+        </S.ContainerFecharContainer>
+      )}
+      <S.CardInfo Tema={props.tema} >
         <S.InformacoesPrincipais method="">
           <S.InfoFotoPerfil>
             <S.ContainerPhoto isDisable={isDisabled}>

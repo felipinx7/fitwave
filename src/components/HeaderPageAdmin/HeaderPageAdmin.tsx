@@ -76,6 +76,7 @@ export const HaederPageAdmin: React.FC = () => {
         handleShowCardInfo={handleShowCardInfo}
         ExibirLapis={true}
         tema="Perfil"
+        exibirFecharContainer={false}
       />
     </S.HeaderPageAdministracao>
   );
