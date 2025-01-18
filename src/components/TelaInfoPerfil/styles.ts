@@ -14,6 +14,7 @@ export const ContainerInfo = styled.div<ContainerInfoProps & CardInfoprops>`
   height: calc(100vh - 146.44px);
   background-color: none;
   z-index: 0;
+  z-index: 2;
   position: ${({ Tema }) => {
     switch (Tema) {
       case "Perfil":
@@ -30,9 +31,11 @@ export const ContainerInfo = styled.div<ContainerInfoProps & CardInfoprops>`
       case "Perfil":
         return "translate(0, 0)";
       case "CardFuncionario":
-        return "translate(-0.5rem, 16rem)";
+        return "translate(8.5rem, 12rem)";
     }
-  }};
+  }
+
+  };
 
   @media ${Breakpoints.lg} {
     transform: ${({ Tema }) => {
@@ -74,7 +77,7 @@ export const CardInfo = styled.div<CardInfoprops>`
 
   @media ${Breakpoints.lg} {
     width: 100%;
-    height: 100%;
+    height: auto;
     padding: 2rem 0;
   }
 `;
@@ -436,10 +439,10 @@ export const ContainerLapis = styled.div`
 export const ContainerFecharContainer = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 5rem;
   height: 5rem;
-  border-radius: 0 0 0 42.79px;
+  border-radius: 0 42.79px 0 0;
   background-color: #00d939;
   z-index: 1;
   font-size: 3rem;
@@ -448,8 +451,17 @@ export const ContainerFecharContainer = styled.div`
   justify-content: center;
   color: white;
   cursor: pointer;
+  transform: translateY(17.5rem);
 
   &:hover {
     background-color: rgb(2, 180, 50);
+  }
+
+  @media ${Breakpoints.lg} {
+    top: 0;
+    left: unset;
+    right: 0;
+    transform: translateY(0);
+    border-radius: 0 0 0 42.79px;
   }
 `;

@@ -15,12 +15,18 @@ export const CardColaboradorECliente = styled.div`
   transition: all 0.7s ease;
   padding: 0 0.5rem;
   gap: 2rem;
-  z-index: 1;
+  z-index: 2;
 
   &.active {
     display: flex;
-    height: auto;
     transform: translate(0, 9.1rem);
+
+    @media ${Breakpoints.lg} {
+      display: flex;
+      width: 100%;
+      transform: translate(0, 9.1rem);
+      z-index: 6;
+    }
   }
 `;
 
@@ -117,13 +123,12 @@ interface ContainerParaInputCardColaborador {
 
 export const FormColaborador = styled.form<ContainerParaInputCardColaborador>`
   width: 100%;
-  height: auto;
+  height: 72vh;
   overflow-y: auto;
   display: ${(props) => (props.SwhoInputTipo ? "flex" : "none")};
   flex-direction: column;
   gap: 0.5rem;
   padding: 0 0.5rem;
-
 
   &::-webkit-scrollbar {
     width: 12px;
@@ -132,7 +137,7 @@ export const FormColaborador = styled.form<ContainerParaInputCardColaborador>`
   }
 
   &::-webkit-scrollbar-track {
-    background-color:rgb(137, 136, 136);
+    background-color: rgb(137, 136, 136);
     border-radius: 10px;
   }
 
@@ -148,7 +153,7 @@ export const FormColaborador = styled.form<ContainerParaInputCardColaborador>`
 
 export const FormCliente = styled.form<ContainerParaInputCardColaborador>`
   width: 100%;
-  height: auto;
+  height: 72vh;
   overflow-y: auto;
   display: ${(props) => (props.SwhoInputTipo ? "flex" : "none")};
   flex-direction: column;
@@ -162,7 +167,7 @@ export const FormCliente = styled.form<ContainerParaInputCardColaborador>`
   }
 
   &::-webkit-scrollbar-track {
-    background-color:rgb(137, 136, 136);
+    background-color: rgb(137, 136, 136);
     border-radius: 10px;
   }
 
@@ -192,8 +197,6 @@ export const LabelContainerCard = styled.label`
   font-weight: 600;
   font-size: 1.1rem;
 `;
-
-
 
 export const containerParaFormCliente = styled.div`
   width: 100%;
@@ -267,6 +270,15 @@ export const BarraDeNavegacao = styled.div`
   padding: 0 2rem;
   transition: all 1s ease;
 
+  @media ${Breakpoints.md} {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
   &.active {
     width: 80%;
 
@@ -282,6 +294,10 @@ export const ContainerTipoUser = styled.div`
   height: auto;
   gap: 1rem;
   width: 50%;
+
+  @media ${Breakpoints.md} {
+    width: 100%;
+  }
 `;
 
 interface ContainerTipoProps {
@@ -316,6 +332,7 @@ export const ContainerCardPersonalAdm = styled.div`
   background-color: #59bc73;
   border-radius: 17px;
   left: 0;
+  z-index: 100;
   cursor: pointer;
 `;
 
@@ -376,6 +393,10 @@ export const ContainerInfo = styled.div`
   align-items: center;
   justify-content: end;
   gap: 1rem;
+
+  @media ${Breakpoints.md} {
+    width: 100%;
+  }
 `;
 
 export const ButtonColaborador = styled.button`
@@ -393,6 +414,13 @@ export const ButtonColaborador = styled.button`
 
   &:hover {
     background-color: rgb(255, 249, 249);
+  }
+
+  @media ${Breakpoints.md} {
+    max-width: unset;
+    width: 100%;
+    height: auto;
+    padding: 0 2rem;
   }
 `;
 
@@ -414,6 +442,7 @@ export const ContainerSino = styled.div<ClickContaineSinorProps>`
   transition: all 0.3s ease;
   background-color: ${(props) =>
     props.clickContainer ? "#59bc73" : "transparent"};
+  z-index: 0;
 
   &:hover {
     background-color: #59bc73;
@@ -481,6 +510,7 @@ export const ContainerFiltro = styled.div<ContainerFiltroProps>`
   color: #347244;
   font-weight: bold;
   transform: translate(-100%, 80%);
+  z-index: 99;
 `;
 
 export const FiltroInput = styled.input`

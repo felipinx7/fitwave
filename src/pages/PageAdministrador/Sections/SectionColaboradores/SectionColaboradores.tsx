@@ -1,112 +1,81 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./styles";
 import { BarraDeNavegacao } from "../../../../components/BarraDeNavegação/BarraDeNavegacao";
 import { TbUserHexagon } from "react-icons/tb";
 import { ContainerInfoCards } from "../../../../components/ContainerIndoCard/ContainerIndoCard";
 import { CardClientesColabores } from "../../../../components/CardClientesColabores/CardClientesColabores";
-import ImagemExemplo from "../../assets/img/fotoPerfilMulher.svg";
-
-
+import ImagemExemplo from "../../../../assets/img/fotoPerfilMulher.svg";
+import { SectionSinoNovosFormularios } from "../SectionSinoNovosFormularios/SectionSinoNovosFormularios";
 
 export const SectionColaboradores: React.FC = () => {
   const [ShowOpcaoTroca, setShowOpcaoTroca] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [selectedCheckbox, setSelectedCheckbox] = useState<number | null>(null);
 
+  const handleAdicionarClasse = () => {
+    setIsActive((prev) => !prev);
+  };
 
-  const Pessoas = [
+  const [Pessoas, setPessoas] = useState([
     {
       nome: "Juan",
       sobrenome: "Carvalho",
       email: "juan.carvalho@example.com",
-      status: "Ativo",
-      dataDeEntrada: "09/09/2009",
-      foto: "ImagemExemplo"
+      status: true,
+      dataDeEntrada: "2009-09-09",
+      foto: ImagemExemplo,
     },
     {
       nome: "Ana",
       sobrenome: "Silva",
       email: "ana.silva@example.com",
-      status: "Inativo",
-      dataDeEntrada: "15/03/2015",
-      foto: "ImagemExemplo"
-
+      status: false,
+      dataDeEntrada: "2015-03-15",
+      foto: ImagemExemplo,
     },
     {
       nome: "Carlos",
       sobrenome: "Oliveira",
       email: "carlos.oliveira@example.com",
-      status: "Ativo",
-      dataDeEntrada: "22/07/2020",
-      foto: "ImagemExemplo"
-
+      status: true,
+      dataDeEntrada: "2020-07-22",
+      foto: ImagemExemplo,
     },
     {
       nome: "Mariana",
       sobrenome: "Souza",
       email: "mariana.souza@example.com",
-      status: "Ativo",
-      dataDeEntrada: "01/01/2018",
-      foto: "ImagemExemplo"
-
+      status: true,
+      dataDeEntrada: "2018-01-01",
+      foto: ImagemExemplo,
     },
     {
       nome: "Fernanda",
       sobrenome: "Lima",
       email: "fernanda.lima@example.com",
-      status: "Inativo",
-      dataDeEntrada: "12/10/2016",
-      foto: "ImagemExemplo"
+      status: false,
+      dataDeEntrada: "2016-10-12",
+      foto: ImagemExemplo,
+    },
+  ]);
 
-    },
-    {
-      nome: "Juan",
-      sobrenome: "Carvalho",
-      email: "juan.carvalho@example.com",
-      status: "Ativo",
-      dataDeEntrada: "09/09/2009",
-      foto: "ImagemExemplo"
-    },
-    {
-      nome: "Ana",
-      sobrenome: "Silva",
-      email: "ana.silva@example.com",
-      status: "Inativo",
-      dataDeEntrada: "15/03/2015",
-      foto: "ImagemExemplo"
+  const [filteredPessoas, setFilteredPessoas] = useState(Pessoas);
 
-    },
-    {
-      nome: "Carlos",
-      sobrenome: "Oliveira",
-      email: "carlos.oliveira@example.com",
-      status: "Ativo",
-      dataDeEntrada: "22/07/2020",
-      foto: "ImagemExemplo"
+  const [showContainer, setshowContainer] = useState(false);
 
-    },
-    {
-      nome: "Mariana",
-      sobrenome: "Souza",
-      email: "mariana.souza@example.com",
-      status: "Ativo",
-      dataDeEntrada: "01/01/2018",
-      foto: "ImagemExemplo"
+  const handleShowContainer = () => {
+    setshowContainer(!showContainer);
+  };
+  const [numeroDeNotificacoes, setNumeroDeNotificacoes] = useState(0);
 
-    },
-    {
-      nome: "Fernanda",
-      sobrenome: "Lima",
-      email: "fernanda.lima@example.com",
-      status: "Inativo",
-      dataDeEntrada: "12/10/2016",
-      foto: "ImagemExemplo"
-
-    },
-  ];
-  
+  const removerpessoa = (index: number) => {
+    setPessoas((prevpessoa) => prevpessoa.filter((_, i) => i !== index));
+  };
 
   const handleShowOpcaoTroca = () => {
     setShowOpcaoTroca(!ShowOpcaoTroca);
   };
+
   return (
     <S.SectionColaborador>
       <BarraDeNavegacao
@@ -116,16 +85,40 @@ export const SectionColaboradores: React.FC = () => {
         ExibirSeta={true}
         ShowOpcaoTroca={ShowOpcaoTroca}
         handleShowOpcaoTroca={handleShowOpcaoTroca}
-        ExibirFormCliente={true}
-        ExibirFormColaborador={false}
+        ExibirFormCliente={false}
+        ExibirFormColaborador={true}
         SectionAtual="Colaborador"
+        handleAdicionarClasse={handleAdicionarClasse}
+        AdicionarCLasse={isActive}
+        handleShowContainer={handleShowContainer}
+        ValorNotificacao={numeroDeNotificacoes}
       />
-      <ContainerInfoCards/>
-      <S.ContainerCardColaboaradores>
-        {Pessoas.map((pessoa, index) => (
-          <CardClientesColabores key={index} nome={pessoa.nome} sobrenome={pessoa.sobrenome} email={pessoa.email} dataEntrada={pessoa.dataDeEntrada} Status={pessoa.status} fotoPerfil={pessoa.foto}/>
-        ))}
-      </S.ContainerCardColaboaradores>
+      {showContainer ? (
+        <ContainerInfoCards
+          AdicionarClasse={isActive}
+          handleAdicionarClasse={handleAdicionarClasse}
+        />
+      ) : null}
+      {showContainer ? (
+        <S.ContainerCardColaboaradores className={isActive ? "active" : ""}>
+          {filteredPessoas.map((pessoa, index) => (
+            <CardClientesColabores
+              key={index}
+              nome={pessoa.nome}
+              sobrenome={pessoa.sobrenome}
+              email={pessoa.email}
+              dataEntrada={pessoa.dataDeEntrada}
+              Status={pessoa.status ? "Ativo" : "Inativo"}
+              fotoPerfil={pessoa.foto}
+              removerpessoa={() => removerpessoa(index)}
+              adicionarClasse={handleAdicionarClasse}
+              adicionar={isActive}
+            />
+          ))}
+        </S.ContainerCardColaboaradores>
+      ) : (
+        <SectionSinoNovosFormularios numeroNotificacao={numeroDeNotificacoes}  onNotificacoesChange={setNumeroDeNotificacoes}  />
+      )}
     </S.SectionColaborador>
   );
 };

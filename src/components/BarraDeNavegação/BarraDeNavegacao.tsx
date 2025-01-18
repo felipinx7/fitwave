@@ -19,6 +19,11 @@ interface BarraDeNavegacaoProps {
   ExibirFormCliente: boolean;
   ExibirFormColaborador: boolean;
   SectionAtual: string;
+  handleAdicionarClasse: () => void;
+  AdicionarCLasse: boolean;
+  handleFilter?: () => void;
+  ValorNotificacao: number,
+  handleShowContainer: () => void;
 }
 
 export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
@@ -36,21 +41,12 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
   const [selectedCheckbox, setSelectedCheckbox] = useState<number | null>(null);
   const [ShowFiltros, setShowFiltros] = useState(false);
   const [ShowOpcaoTroca, setShowOpcaoTroca] = useState(false);
-  const [AdicionarCLasse, setAdicionarCLasse] = useState(false);
   const [foto, setFoto] = useState<string | null>(null);
   const inputFotoRef = useRef<HTMLInputElement>(null);
 
   // Funções de manipulação de eventos
   const handleCheckedInput = (index: number) => {
     setSelectedCheckbox(selectedCheckbox === index ? null : index);
-  };
-
-  const removerClasseActive = () => {
-    setAdicionarCLasse(false);
-  };
-
-  const handleAdicionarClasse = () => {
-    setAdicionarCLasse(!AdicionarCLasse);
   };
 
   const handleClickContainerBarras = () => {
@@ -61,6 +57,7 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
 
   const handleClickContainerSino = () => {
     setClickContainerSino((prev) => !prev);
+    props.handleShowContainer()
   };
 
   const aplicarMascaraTelefone = (e: React.FormEvent<HTMLInputElement>) => {
@@ -71,7 +68,7 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
       .replace(/^(\d{2})(\d)/, "($1)$2")
       .replace(/(\d{4})(\d)/, "$1-$2");
 
-    input.value = formatado.substring(0, 14);  
+    input.value = formatado.substring(0, 14);
   };
 
   const handleContainerClick = () => {
@@ -98,10 +95,14 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
   };
 
   return (
-    <S.DivNavegacao className={AdicionarCLasse ? "active" : ""}>
-      <S.CardColaboradorECliente className={AdicionarCLasse ? "active" : ""}>
+    <S.DivNavegacao className={props.AdicionarCLasse ? "active" : ""}>
+      <S.CardColaboradorECliente
+        className={props.AdicionarCLasse ? "active" : ""}
+      >
         <S.DivsTextoESeta>
-          <MdOutlineArrowBackIos onClick={removerClasseActive} />
+          <MdOutlineArrowBackIos
+            onClick={() => props.handleAdicionarClasse()}
+          />
           <S.TextNovoColaborador>
             Novo {props.SectionAtual}
           </S.TextNovoColaborador>
@@ -316,7 +317,9 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
         )}
       </S.CardColaboradorECliente>
 
-      <S.BarraDeNavegacao className={AdicionarCLasse ? "active" : ""}>
+      {/* // PARTE BARRA DE NAVEGAÇÃO  */}
+
+      <S.BarraDeNavegacao className={props.AdicionarCLasse ? "active" : ""}>
         <S.ContainerTipoUser>
           <S.ContainerTipo>
             <infoTipoUser.icone />
@@ -353,10 +356,11 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
           <S.ContainerSino
             onClick={handleClickContainerSino}
             clickContainer={clickContainerSino}
+            
           >
             <FaBell />
             <S.ValorDeNotificacaoSino>
-              <S.ValorNotificacao>0+</S.ValorNotificacao>
+              <S.ValorNotificacao>{props.ValorNotificacao}+</S.ValorNotificacao>
             </S.ValorDeNotificacaoSino>
           </S.ContainerSino>
 
@@ -403,9 +407,10 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
                 <S.checkmark />
               </S.LabelInputsFiltros>
             </S.containerInputsFiltros>
+            <button onClick={props.handleFilter}>han</button>
           </S.ContainerFiltro>
 
-          <S.ButtonColaborador onClick={handleAdicionarClasse}>
+          <S.ButtonColaborador onClick={props.handleAdicionarClasse}>
             + {props.TextoBotao}
           </S.ButtonColaborador>
         </S.ContainerInfo>

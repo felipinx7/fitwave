@@ -7,6 +7,7 @@ import { TbLogout } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { TelaAlertaLogout } from "../TelaLogout/TelaLogout";
 import { TelaInfoPerfil } from "../TelaInfoPerfil/TelaInfoPerfil";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export const HaederPageAdmin: React.FC = () => {
   const [isActive, setisActive] = useState<number | null>(null);
@@ -14,8 +15,12 @@ export const HaederPageAdmin: React.FC = () => {
   const HandleFecharALerta = () => {
     setFechar(!fechar);
   };
+  const [toggleIcone, settoggleIcone] = useState(false);
   const [ShowCardInfo, setShowCardInfo] = useState(false);
 
+  const handleToggleIconeHeader = () => {
+    settoggleIcone(!toggleIcone);
+  };
   const handleShowCardInfo = () => {
     setShowCardInfo(!ShowCardInfo);
   };
@@ -51,6 +56,29 @@ export const HaederPageAdmin: React.FC = () => {
               Olá, <S.SpanTextAdmin>Administrador!</S.SpanTextAdmin>
             </S.TextBoasVindasHeader>
           </S.ContainerContaHeader>
+          <S.ContainerButtons onClick={handleToggleIconeHeader}>
+            {toggleIcone ? <FaTimes /> : <FaBars />}
+            <S.ContainerButtonsMobile ShowContainerMobile={toggleIcone}>
+              <S.ButtonsHeaderMobile
+                onClick={() => HandleClickButton(0)}
+                isActive={isActive == 0}
+              >
+                Colaboradores
+                <IoFlash />
+              </S.ButtonsHeaderMobile>
+              <S.ButtonsHeaderMobile
+                onClick={() => HandleClickButton(1)}
+                isActive={isActive == 1}
+              >
+                Clientes
+                <IoPeople />
+              </S.ButtonsHeaderMobile>
+              <S.buttonSairMobile onClick={HandleFecharALerta}>
+                <TbLogout />
+                Sair
+              </S.buttonSairMobile>
+            </S.ContainerButtonsMobile>
+          </S.ContainerButtons>
           <S.ButtonsHeader
             onClick={() => HandleClickButton(0)}
             isActive={isActive == 0}

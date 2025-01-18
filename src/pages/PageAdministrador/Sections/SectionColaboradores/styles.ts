@@ -7,6 +7,7 @@ export const SectionColaborador = styled.section`
   padding: 1rem 1.5rem 0 1rem;
 `;
 
+
 export const ContainerCardColaboaradores = styled.div`
   height: 100vh;
   width: 100%;
@@ -17,4 +18,10 @@ export const ContainerCardColaboaradores = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   padding: 1rem 0;
+  transition: all 1s ease;
+
+  &.active{
+    width: 75%;
+    justify-content: flex-start; 
+  }
 `;

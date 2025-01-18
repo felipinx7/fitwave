@@ -15,7 +15,7 @@ import { SectionDiaPagamento } from "../pages/CadastroCorpo/Sections/SectionDiaP
 import { SectionCadastroFinalizado } from "../pages/CadastroCorpo/Sections/SectionCadastroFinalizado/SectionCadastroFinalizado";
 import { SectionTelaCarregamento } from "../pages/CadastroCorpo/Sections/TelaDeCarregamento/TelaDeCarregamento";
 import { PageAdministradora } from "../pages/PageAdministrador";
-import NotificationBell from "../components/texte/texte";
+import Checkbox from "../components/texte/texte";
 
 export const Routes = () => {
   const [formData, setFormData] = useState({
@@ -93,8 +93,8 @@ export const Routes = () => {
     },
     {
       path: "teste",
-      element: <NotificationBell/>
-    }
+      element: <Checkbox/>
+    },
   ]);
 
   return <RouterProvider router={router} />;

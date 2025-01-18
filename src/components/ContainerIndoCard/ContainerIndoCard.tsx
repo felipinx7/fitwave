@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 
-export const ContainerInfoCards: React.FC = () => {
+interface ContainerInfoCardsProps{
+  AdicionarClasse: boolean
+  handleAdicionarClasse: () => void
+}
+
+export const ContainerInfoCards: React.FC<ContainerInfoCardsProps> = (props) => { 
+
+
   return (
-    <S.ContainerInfoCard>
-      <S.ContainerTextos>
+    <S.ContainerInfoCard className={props.AdicionarClasse ? "active" : ""}>
+      <S.ContainerTextos className={props.AdicionarClasse ? "active" : ""}>
         <S.ContainerNome>
           <S.textInfoCard>Nomes</S.textInfoCard>
         </S.ContainerNome>
@@ -12,11 +19,11 @@ export const ContainerInfoCards: React.FC = () => {
           <S.textInfoCard>Entrada</S.textInfoCard>
         </S.ContainerEntrada>
         <S.containerStatusEeditar>
-          <S.textInfoCard>Status</S.textInfoCard>
+          <S.TextStatus>Status</S.TextStatus>
           <S.textInfoCard>Editar</S.textInfoCard>
         </S.containerStatusEeditar>
       </S.ContainerTextos>
-      <hr />
+      <hr className={props.AdicionarClasse ? "active" : ""} />
     </S.ContainerInfoCard>
   );
 };
