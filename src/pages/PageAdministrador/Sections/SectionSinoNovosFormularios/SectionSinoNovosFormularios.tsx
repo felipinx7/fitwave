@@ -15,11 +15,13 @@ type User = {
 interface SectinSinoNovosFormulariosProps {
   numeroNotificacao: number;
   onNotificacoesChange: (num: number) => void;
+  isActive: boolean
 }
 
 export const SectionSinoNovosFormularios: React.FC<SectinSinoNovosFormulariosProps> = ({
   numeroNotificacao,
   onNotificacoesChange,
+  isActive,
 }) => {
   const [ValueInput, setValueInput] = useState("");
   const [Newusers, setNewusers] = useState<User[]>([
@@ -97,7 +99,7 @@ export const SectionSinoNovosFormularios: React.FC<SectinSinoNovosFormulariosPro
 
   return (
     <S.SectionSino>
-      <S.ContainerInformacoesFiltros>
+      <S.ContainerInformacoesFiltros className={isActive ? "active" : ""}>
         <S.ContainerLidaENaoLida>
           <S.ButtonsLidos
             isClicked={isclicked === 1}

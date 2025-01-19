@@ -8,6 +8,7 @@ export const SectionSino = styled.section`
   margin: 0 auto;
   background-color: #d9d9d9;
   border-radius: 20px;
+  transition: all 1s ease;
 `;
 export const ContainerInformacoesFiltros = styled.div`
   display: flex;
@@ -16,12 +17,19 @@ export const ContainerInformacoesFiltros = styled.div`
   width: 100%;
   height: auto;
   align-items: baseline;
+  transition: all 1s ease;
 
   @media ${Breakpoints.md} {
     flex-direction: column;
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    transition: all 1s ease;
+  }
+  &.active {
+    transition: all 1s ease;
+    justify-content: unset;
+    gap: 2rem;
   }
 `;
 

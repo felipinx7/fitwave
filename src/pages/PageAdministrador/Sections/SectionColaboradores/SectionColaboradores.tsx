@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import { BarraDeNavegacao } from "../../../../components/BarraDeNavegação/BarraDeNavegacao";
 import { TbUserHexagon } from "react-icons/tb";
@@ -6,8 +6,13 @@ import { ContainerInfoCards } from "../../../../components/ContainerIndoCard/Con
 import { CardClientesColabores } from "../../../../components/CardClientesColabores/CardClientesColabores";
 import ImagemExemplo from "../../../../assets/img/fotoPerfilMulher.svg";
 import { SectionSinoNovosFormularios } from "../SectionSinoNovosFormularios/SectionSinoNovosFormularios";
+import { HaederPageAdmin } from "../../../../components/HeaderPageAdmin/HeaderPageAdmin";
 
-export const SectionColaboradores: React.FC = () => {
+interface SectionColaboradoresProps {
+  renderHeader?: boolean;
+}
+
+export const SectionColaboradores: React.FC<SectionColaboradoresProps> = ({ renderHeader = true }) => {
   const [ShowOpcaoTroca, setShowOpcaoTroca] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [selectedCheckbox, setSelectedCheckbox] = useState<number | null>(null);
@@ -61,11 +66,12 @@ export const SectionColaboradores: React.FC = () => {
 
   const [filteredPessoas, setFilteredPessoas] = useState(Pessoas);
 
-  const [showContainer, setshowContainer] = useState(false);
+  const [showContainer, setshowContainer] = useState(true);
 
   const handleShowContainer = () => {
     setshowContainer(!showContainer);
   };
+
   const [numeroDeNotificacoes, setNumeroDeNotificacoes] = useState(0);
 
   const removerpessoa = (index: number) => {
@@ -77,48 +83,57 @@ export const SectionColaboradores: React.FC = () => {
   };
 
   return (
-    <S.SectionColaborador>
-      <BarraDeNavegacao
-        TextTipoUser="Administradores"
-        IconeTipoUser={TbUserHexagon}
-        TextoBotao="Novo Colaborador"
-        ExibirSeta={true}
-        ShowOpcaoTroca={ShowOpcaoTroca}
-        handleShowOpcaoTroca={handleShowOpcaoTroca}
-        ExibirFormCliente={false}
-        ExibirFormColaborador={true}
-        SectionAtual="Colaborador"
-        handleAdicionarClasse={handleAdicionarClasse}
-        AdicionarCLasse={isActive}
-        handleShowContainer={handleShowContainer}
-        ValorNotificacao={numeroDeNotificacoes}
-      />
-      {showContainer ? (
-        <ContainerInfoCards
-          AdicionarClasse={isActive}
+    <>
+      {/* Condicional para renderizar ou não o header */}
+      {renderHeader && <HaederPageAdmin renderHeader={false} />} 
+
+      <S.SectionColaborador>
+        <BarraDeNavegacao
+          TextTipoUser="Administradores"
+          IconeTipoUser={TbUserHexagon}
+          TextoBotao="Novo Colaborador"
+          ExibirSeta={true}
+          ShowOpcaoTroca={ShowOpcaoTroca}
+          handleShowOpcaoTroca={handleShowOpcaoTroca}
+          ExibirFormCliente={false}
+          ExibirFormColaborador={true}
+          SectionAtual="Colaborador"
           handleAdicionarClasse={handleAdicionarClasse}
+          AdicionarCLasse={isActive}
+          handleShowContainer={handleShowContainer}
+          ValorNotificacao={numeroDeNotificacoes}
         />
-      ) : null}
-      {showContainer ? (
-        <S.ContainerCardColaboaradores className={isActive ? "active" : ""}>
-          {filteredPessoas.map((pessoa, index) => (
-            <CardClientesColabores
-              key={index}
-              nome={pessoa.nome}
-              sobrenome={pessoa.sobrenome}
-              email={pessoa.email}
-              dataEntrada={pessoa.dataDeEntrada}
-              Status={pessoa.status ? "Ativo" : "Inativo"}
-              fotoPerfil={pessoa.foto}
-              removerpessoa={() => removerpessoa(index)}
-              adicionarClasse={handleAdicionarClasse}
-              adicionar={isActive}
-            />
-          ))}
-        </S.ContainerCardColaboaradores>
-      ) : (
-        <SectionSinoNovosFormularios numeroNotificacao={numeroDeNotificacoes}  onNotificacoesChange={setNumeroDeNotificacoes}  />
-      )}
-    </S.SectionColaborador>
+        {showContainer ? (
+          <ContainerInfoCards
+            AdicionarClasse={isActive}
+            handleAdicionarClasse={handleAdicionarClasse}
+          />
+        ) : null}
+        {showContainer ? (
+          <S.ContainerCardColaboaradores className={isActive ? "active" : ""}>
+            {filteredPessoas.map((pessoa, index) => (
+              <CardClientesColabores
+                key={index}
+                nome={pessoa.nome}
+                sobrenome={pessoa.sobrenome}
+                email={pessoa.email}
+                dataEntrada={pessoa.dataDeEntrada}
+                Status={pessoa.status ? "Ativo" : "Inativo"}
+                fotoPerfil={pessoa.foto}
+                removerpessoa={() => removerpessoa(index)}
+                adicionarClasse={handleAdicionarClasse}
+                adicionar={isActive}
+              />
+            ))}
+          </S.ContainerCardColaboaradores>
+        ) : (
+          <SectionSinoNovosFormularios
+            isActive={isActive}
+            numeroNotificacao={numeroDeNotificacoes}
+            onNotificacoesChange={setNumeroDeNotificacoes}
+          />
+        )}
+      </S.SectionColaborador>
+    </>
   );
 };

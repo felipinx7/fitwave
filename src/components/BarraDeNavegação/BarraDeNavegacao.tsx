@@ -28,14 +28,8 @@ interface BarraDeNavegacaoProps {
 
 export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
   // Estados para controle da navegação
-  const [infoQuadrado, setInfoQuadrado] = useState({
-    icone: FaDumbbell,
-    texto: "Personal",
-  });
-  const [infoTipoUser, setInfoTipoUser] = useState({
-    icone: props.IconeTipoUser,
-    texto: props.TextTipoUser,
-  });
+  const [infoQuadrado, setInfoQuadrado] = useState({ icone: FaDumbbell, texto: "Personal" });
+  const [infoTipoUser, setInfoTipoUser] = useState({ icone: props.IconeTipoUser, texto: props.TextTipoUser });
   const [clickContainerBarras, setClickContainerBarras] = useState(false);
   const [clickContainerSino, setClickContainerSino] = useState(false);
   const [selectedCheckbox, setSelectedCheckbox] = useState<number | null>(null);
@@ -44,7 +38,7 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
   const [foto, setFoto] = useState<string | null>(null);
   const inputFotoRef = useRef<HTMLInputElement>(null);
 
-  // Funções de manipulação de eventos
+  // Handlers para eventos
   const handleCheckedInput = (index: number) => {
     setSelectedCheckbox(selectedCheckbox === index ? null : index);
   };
@@ -57,41 +51,22 @@ export const BarraDeNavegacao: React.FC<BarraDeNavegacaoProps> = (props) => {
 
   const handleClickContainerSino = () => {
     setClickContainerSino((prev) => !prev);
-    props.handleShowContainer()
+    props.handleShowContainer();
   };
 
   const aplicarMascaraTelefone = (e: React.FormEvent<HTMLInputElement>) => {
     const input = e.currentTarget;
     const valor = input.value.replace(/\D/g, "");
-
-    const formatado = valor
-      .replace(/^(\d{2})(\d)/, "($1)$2")
-      .replace(/(\d{4})(\d)/, "$1-$2");
-
+    const formatado = valor.replace(/^(\d{2})(\d)/, "($1)$2").replace(/(\d{4})(\d)/, "$1-$2");
     input.value = formatado.substring(0, 14);
   };
 
   const handleContainerClick = () => {
-    if (infoQuadrado.texto === "Personal") {
-      setInfoQuadrado({
-        icone: infoTipoUser.icone,
-        texto: infoTipoUser.texto,
-      });
-      setInfoTipoUser({
-        icone: FaDumbbell,
-        texto: "Personal",
-      });
-    } else {
-      setInfoQuadrado({
-        icone: FaDumbbell,
-        texto: "Personal",
-      });
-      setInfoTipoUser({
-        icone: infoQuadrado.icone,
-        texto: infoQuadrado.texto,
-      });
-    }
-    setShowOpcaoTroca((prev) => prev);
+    setInfoQuadrado(infoQuadrado.texto === "Personal"
+      ? { icone: infoTipoUser.icone, texto: infoTipoUser.texto }
+      : { icone: FaDumbbell, texto: "Personal" });
+    setInfoTipoUser(infoQuadrado);
+    setShowOpcaoTroca((prev) => !prev);
   };
 
   return (

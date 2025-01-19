@@ -20,7 +20,7 @@ export const CardClientesNovos: React.FC<CardClienteProps> = (props) => {
   };
 
   return (
-    <S.CardNovoCliente className={props.isNovo ? "CardNovo" : ""}>
+    <S.CardNovoCliente className={props.isNovo ? "CardNovo active" : ""}>
       <S.ContainerInfoBasica>
         <S.ContainerFotoPerfil>
           <S.fotoPerfil src={props.foto} />

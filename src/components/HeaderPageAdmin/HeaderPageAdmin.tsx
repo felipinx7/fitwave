@@ -8,32 +8,59 @@ import { useNavigate } from "react-router-dom";
 import { TelaAlertaLogout } from "../TelaLogout/TelaLogout";
 import { TelaInfoPerfil } from "../TelaInfoPerfil/TelaInfoPerfil";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { SectionColaboradores } from "../../pages/PageAdministrador/Sections/SectionColaboradores/SectionColaboradores";
+import { SectionCliente } from "../../pages/PageAdministrador/Sections/SectionClientes/SectionClientes";
 
-export const HaederPageAdmin: React.FC = () => {
-  const [isActive, setisActive] = useState<number | null>(null);
+interface HeaderPageAdminprops {
+  showcontainer?: boolean;
+  MostrarSectionColaboradorECliente?: (section: number) => void;
+  renderHeader?: boolean;
+}
+
+export const HaederPageAdmin: React.FC<HeaderPageAdminprops> = (props) => {
+  const { renderHeader = true } = props;
+
+  const [isActive, setIsActive] = useState<number | null>(null);
   const [fechar, setFechar] = useState(false);
-  const HandleFecharALerta = () => {
+  const [toggleIcone, setToggleIcone] = useState(false);
+  const [showCardInfo, setShowCardInfo] = useState(false);
+  const [selectedSection, setSelectedSection] = useState<number | null>(null);
+  const navigate = useNavigate();
+
+  if (!renderHeader) {
+    return null;
+  }
+
+  const handleFecharALerta = () => {
     setFechar(!fechar);
   };
-  const [toggleIcone, settoggleIcone] = useState(false);
-  const [ShowCardInfo, setShowCardInfo] = useState(false);
 
   const handleToggleIconeHeader = () => {
-    settoggleIcone(!toggleIcone);
+    setToggleIcone(!toggleIcone);
   };
+
   const handleShowCardInfo = () => {
-    setShowCardInfo(!ShowCardInfo);
+    setShowCardInfo(!showCardInfo);
   };
 
   const HandleClickButton = (index: number) => {
-    setisActive(isActive == index ? null : index);
+    setIsActive(isActive === index ? index : index);
+    setSelectedSection(index);
+
+    if (props.MostrarSectionColaboradorECliente) {
+      props.MostrarSectionColaboradorECliente(index);
+    }
+
+    if (index === 0) {
+      navigate("/PageAdmin");
+    } else if (index === 1) {
+      navigate("/Cliente");
+    }
   };
 
-  const navigate = useNavigate();
   const LinkLogotPage = (param: string) => {
-    if (param == "logout") {
+    if (param === "logout") {
       navigate("/login");
-    } else {
     }
   };
 
@@ -42,7 +69,7 @@ export const HaederPageAdmin: React.FC = () => {
       <TelaAlertaLogout
         tela="Administração"
         caminho={LinkLogotPage}
-        handleFechar={HandleFecharALerta}
+        handleFechar={handleFecharALerta}
         fechar={fechar}
       />
       <S.ContainerHeaderLogo>
@@ -61,19 +88,19 @@ export const HaederPageAdmin: React.FC = () => {
             <S.ContainerButtonsMobile ShowContainerMobile={toggleIcone}>
               <S.ButtonsHeaderMobile
                 onClick={() => HandleClickButton(0)}
-                isActive={isActive == 0}
+                isActive={isActive === 0}
               >
                 Colaboradores
                 <IoFlash />
               </S.ButtonsHeaderMobile>
               <S.ButtonsHeaderMobile
                 onClick={() => HandleClickButton(1)}
-                isActive={isActive == 1}
+                isActive={isActive === 1}
               >
                 Clientes
                 <IoPeople />
               </S.ButtonsHeaderMobile>
-              <S.buttonSairMobile onClick={HandleFecharALerta}>
+              <S.buttonSairMobile onClick={handleFecharALerta}>
                 <TbLogout />
                 Sair
               </S.buttonSairMobile>
@@ -81,26 +108,28 @@ export const HaederPageAdmin: React.FC = () => {
           </S.ContainerButtons>
           <S.ButtonsHeader
             onClick={() => HandleClickButton(0)}
-            isActive={isActive == 0}
+            isActive={isActive === 0}
           >
             <IoFlash />
             Colaboradores
           </S.ButtonsHeader>
           <S.ButtonsHeader
             onClick={() => HandleClickButton(1)}
-            isActive={isActive == 1}
+            isActive={isActive === 1}
           >
             <IoPeople />
             Clientes
           </S.ButtonsHeader>
-          <S.ButtonSair onClick={HandleFecharALerta}>
+          <S.ButtonSair onClick={handleFecharALerta}>
             <TbLogout />
             Sair
           </S.ButtonSair>
         </S.InfoPrincipais>
       </S.HeaderInfoPrincipais>
+
+
       <TelaInfoPerfil
-        showCardInfo={ShowCardInfo}
+        showCardInfo={showCardInfo}
         handleShowCardInfo={handleShowCardInfo}
         ExibirLapis={true}
         tema="Perfil"

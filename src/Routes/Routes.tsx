@@ -16,6 +16,8 @@ import { SectionCadastroFinalizado } from "../pages/CadastroCorpo/Sections/Secti
 import { SectionTelaCarregamento } from "../pages/CadastroCorpo/Sections/TelaDeCarregamento/TelaDeCarregamento";
 import { PageAdministradora } from "../pages/PageAdministrador";
 import Checkbox from "../components/texte/texte";
+import { SectionCliente } from "../pages/PageAdministrador/Sections/SectionClientes/SectionClientes";
+import { SectionColaboradores } from "../pages/PageAdministrador/Sections/SectionColaboradores/SectionColaboradores";
 
 export const Routes = () => {
   const [formData, setFormData] = useState({
@@ -95,6 +97,14 @@ export const Routes = () => {
       path: "teste",
       element: <Checkbox/>
     },
+    {
+      path: "Cliente",
+      element: <SectionCliente/>
+    },
+    {
+      path: "Colaborador",
+      element: <SectionColaboradores/>
+    }
   ]);
 
   return <RouterProvider router={router} />;
