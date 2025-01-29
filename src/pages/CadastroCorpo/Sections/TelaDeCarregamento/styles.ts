@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ImagemFundo from "../../../../assets/img/fundo-tela-inicial.svg";
 
 export const TelaDeCarregamento = styled.section`
-  background-color: black;
+  background-color: white;
   width: 100%;
   height: 100vh;
 `;
@@ -22,7 +22,23 @@ export const ContainerInfoPrincipais = styled.div`
   cursor: pointer;
 `;
 
-export const LogoFitwave = styled.img``;
+export const LogoFitwave = styled.img`
+
+animation: pulsar 2s ease-in-out infinite;
+
+  @keyframes pulsar {
+    0%{
+      transform: scale(1.1);
+    }
+    50%{
+      transform: scale(1);
+    }
+    100%{
+      transform: scale(1.1);
+    }
+  }
+
+`;
 export const TextCliqueParaContinuar = styled.h3`
   font-size: 20px;
   font-weight: 500;
@@ -48,5 +64,3 @@ export const TextCliqueParaContinuar = styled.h3`
     }
   }
 `;
-
-

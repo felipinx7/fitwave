@@ -11,8 +11,8 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         font-family: "Goldman", serif;
         overflow: hidden;
-    }
 
+    }
     html{
         overflow-x: hidden;
     }

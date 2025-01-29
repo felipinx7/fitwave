@@ -18,6 +18,7 @@ import { PageAdministradora } from "../pages/PageAdministrador";
 import Checkbox from "../components/texte/texte";
 import { SectionCliente } from "../pages/PageAdministrador/Sections/SectionClientes/SectionClientes";
 import { SectionColaboradores } from "../pages/PageAdministrador/Sections/SectionColaboradores/SectionColaboradores";
+import { PagePersonal } from "../pages/PagePersonal";
 
 export const Routes = () => {
   const [formData, setFormData] = useState({
@@ -104,6 +105,10 @@ export const Routes = () => {
     {
       path: "Colaborador",
       element: <SectionColaboradores/>
+    },
+    {
+      path: "PagePersonal",
+      element: <PagePersonal/>
     }
   ]);
 
