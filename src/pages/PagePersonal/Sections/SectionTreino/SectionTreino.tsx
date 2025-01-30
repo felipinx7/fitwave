@@ -5,6 +5,7 @@ import { Treinos } from "../../../../constants/constasts";
 import { linksButtonSelected } from "../../../../constants/constasts";
 import { CardTreino } from "../../../../components/CardTreino/CardTreino";
 import { CardEnviarTreino } from "../../../../components/CardEnviarTreino/CardEnviarTreino";
+import { IoClose } from "react-icons/io5";
 
 export const SectionTreino: React.FC = () => {
   // Parte dos Estados
@@ -15,11 +16,16 @@ export const SectionTreino: React.FC = () => {
   const [treinos, setTreinos] = useState(Treinos);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [showCardEnviar, setshowCardEnviar] = useState(false);
+  const [ShowContainerCadastrar, setShowContainerCadastrar] = useState(false);
 
   const handleshowCardEnviar = () => {
     setshowCardEnviar((prev) => !prev);
-    console.log("É aqui viu!")
+    console.log("É aqui viu!");
   };
+  const handleShowContainerCadastrar = () => {
+    setShowContainerCadastrar((prev) => !prev);
+  };
+
   // Funções de Manipulação
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setNivel(e.target.value);
@@ -269,6 +275,57 @@ export const SectionTreino: React.FC = () => {
       {/* PARTE DAS CATEGORIAS */}
       <S.ContainerGeralCategorias>
         {filterContainer()}
+        <S.ConatinerButtonAdicionar onClick={handleShowContainerCadastrar}>
+          +
+        </S.ConatinerButtonAdicionar>
+        <S.ContainerCadastrarTreino
+          showContainerCadastrar={ShowContainerCadastrar}
+          method=""
+        >
+          <S.tituloCard>Cadastrar Treino</S.tituloCard>
+          <S.containerInfoFhecarCard onClick={handleShowContainerCadastrar}>
+            <IoClose />
+          </S.containerInfoFhecarCard>
+          <S.ContainerFotoTreino type="file" accept="image/*" required />
+
+          <S.containerLabels>
+            {/* Nome do Exercício */}
+            <S.label>Nome do Exercício:</S.label>
+            <S.Input type="text" placeholder="Ex: Agachamento" required />
+
+            {/* Descrição */}
+            <S.label>Descrição:</S.label>
+            <S.Input type="text" placeholder="Descriçãõ aqui" required />
+
+            {/* Categoria */}
+            <S.label>Categoria:</S.label>
+            <S.Select required>
+              <option value="">Selecione a categoria</option>
+              <option value="Cardio">Cardio</option>
+              <option value="Glúteos">Glúteos</option>
+              <option value="Pernas">Pernas</option>
+              <option value="Costas">Costas</option>
+              <option value="Peitoral">Peitoral</option>
+            </S.Select>
+
+            {/* Quantidade de Repetições */}
+            <S.label>Quantidade de Repetições:</S.label>
+            <S.Input type="number" placeholder="Ex: 3" required />
+
+            {/* Execuções por Repetição */}
+            <S.label>Execuções por Repetição:</S.label>
+            <S.Input type="number" placeholder="Ex: 15" required />
+
+            {/* Intervalo */}
+            <S.label>Intervalo (segundos):</S.label>
+            <S.Input type="number" placeholder="Ex: 30" required />
+
+            {/* duração  */}
+            <S.label>Duração:</S.label>
+            <S.Input type="text" placeholder="Ex: 30" required />
+          </S.containerLabels>
+          <S.buttonCadastrarTreino>CADASTRAR TREINO</S.buttonCadastrarTreino>
+        </S.ContainerCadastrarTreino>
       </S.ContainerGeralCategorias>
     </S.Treinos>
   );

@@ -231,3 +231,11 @@ export const linksButtonSelected = [
   { nome: "Costas", param: 4 },
   { nome: "Peitoral", param: 5 },
 ];
+
+export const PessoasParaCompartilhar = [
+  { id: 1, nome: "Felipe", sobrenome: "Lima", email: "flimalimafelipek@gmail.com", imagem: "utrç" },
+  { id: 2, nome: "Ana", sobrenome: "Silva", email: "ana.silva@example.com", imagem: "utrç" },
+  { id: 3, nome: "Carlos", sobrenome: "Santos", email: "carlos.santos@example.com", imagem: "utrç" },
+  { id: 4, nome: "Mariana", sobrenome: "Oliveira", email: "mariana.oliveira@example.com", imagem: "utrç" },
+  { id: 5, nome: "João", sobrenome: "Souza", email: "joao.souza@example.com", imagem: "utrç" },
+];

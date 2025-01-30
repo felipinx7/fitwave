@@ -49,7 +49,7 @@ export const Card = styled.div`
   background-color: ${colors.verdeForte};
   display: flex;
   z-index: 99999999;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   flex-direction: column;
 
@@ -75,6 +75,7 @@ export const InputEnviarTreino = styled.input`
   text-align: center;
   border-radius: 20px;
   margin-bottom: 1rem;
+  outline: none;
 
   &::placeholder {
     color: ${colors.corBranca};
@@ -84,14 +85,81 @@ export const InputEnviarTreino = styled.input`
 `;
 
 export const FomularioEnvio = styled.form`
-  height: 50%;
+  height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ContainerCards = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  height: 38%;
   overflow-y: auto;
-  background-color: ${colors.corBranca};
 `;
 
 export const ContainerEnvio = styled.div`
   width: 100%;
   background-color: ${colors.verdeForte};
-  height: 40%;
+  height: 50%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+export const TextDicas = styled.h3`
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: ${colors.corBranca};
+`;
+
+export const InputDica = styled.input`
+  width: 100%;
+  height: 70%;
+  border: none;
+  background-color: #d9d9d9d9;
+  font-size: 1.2rem;
+  color: ${colors.verdeForte};
+  padding: 2rem;
+
+  &::placeholder {
+    font-size: 1.2rem;
+    color: ${colors.verdeForte};
+  }
+`;
+
+export const buttonEnviar = styled.button`
+  width: 100%;
+  height: 5rem;
+  background-color: ${colors.verdeClaro};
+  color: ${colors.corBranca};
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+`;
+
+export const ContainerFechar = styled.div`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: absolute;
+  background-color: ${colors.corBranca};
+  top: 0;
+  right: 0;
+  transform: translate(-20%, 20%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  svg{
+    font-size: 1.5rem;
+    color: ${colors.verdeForte};
+  }
 `;
