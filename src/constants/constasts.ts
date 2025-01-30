@@ -3,6 +3,7 @@ import { FaDumbbell } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
 import { IoIosPaper } from "react-icons/io";
 import { FaRegUserCircle } from "react-icons/fa";
+import { FaCalendarCheck } from "react-icons/fa";
 
 export const LinkSideBarsPersonal = [
   { nome: "Home", id: "Home", icone: GoHomeFill, param: 1 },
@@ -10,6 +11,7 @@ export const LinkSideBarsPersonal = [
   { nome: "Alunos", id: "Alunos", icone: FaUser, param: 3 },
   { nome: "Relatorio", id: "Relatorio", icone: IoIosPaper, param: 4 },
   { nome: "Perfil", id: "Perfil", icone: FaRegUserCircle, param: 5 },
+  { nome: "Status", id: "Status", icone: FaCalendarCheck, param: 6 },
 ];
 
 export const LinkSideBarsCliente = [
@@ -107,7 +109,7 @@ export const Treinos = [
     duracao: "20min",
     nivel: "Iniciante",
   },
-  
+
   // Glúteos
   {
     id: 3,
@@ -233,9 +235,343 @@ export const linksButtonSelected = [
 ];
 
 export const PessoasParaCompartilhar = [
-  { id: 1, nome: "Felipe", sobrenome: "Lima", email: "flimalimafelipek@gmail.com", imagem: "utrç" },
-  { id: 2, nome: "Ana", sobrenome: "Silva", email: "ana.silva@example.com", imagem: "utrç" },
-  { id: 3, nome: "Carlos", sobrenome: "Santos", email: "carlos.santos@example.com", imagem: "utrç" },
-  { id: 4, nome: "Mariana", sobrenome: "Oliveira", email: "mariana.oliveira@example.com", imagem: "utrç" },
-  { id: 5, nome: "João", sobrenome: "Souza", email: "joao.souza@example.com", imagem: "utrç" },
+  {
+    id: 1,
+    nome: "Felipe",
+    sobrenome: "Lima",
+    email: "flimalimafelipek@gmail.com",
+    imagem: "utrç",
+  },
+  {
+    id: 2,
+    nome: "Ana",
+    sobrenome: "Silva",
+    email: "ana.silva@example.com",
+    imagem: "utrç",
+  },
+  {
+    id: 3,
+    nome: "Carlos",
+    sobrenome: "Santos",
+    email: "carlos.santos@example.com",
+    imagem: "utrç",
+  },
+  {
+    id: 4,
+    nome: "Mariana",
+    sobrenome: "Oliveira",
+    email: "mariana.oliveira@example.com",
+    imagem: "utrç",
+  },
+  {
+    id: 5,
+    nome: "João",
+    sobrenome: "Souza",
+    email: "joao.souza@example.com",
+    imagem: "utrç",
+  },
+];
+
+const generateRandomPassword = (length: number): string => {
+  const charset = "0123456789";
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    password += charset[randomIndex];
+  }
+  return password;
+};
+
+export const usuariosClientes = [
+  {
+    id: 1,
+    nome: "Felipe",
+    sobrenome: "Lima",
+    email: "felipe.lima@email.com",
+    telefone: "(11) 98765-4321",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+  {
+    id: 2,
+    nome: "Lucas",
+    sobrenome: "Silva",
+    email: "lucas.silva@email.com",
+    telefone: "(21) 91234-5678",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "iniciante",
+  },
+  {
+    id: 3,
+    nome: "Mariana",
+    sobrenome: "Souza",
+    email: "mariana.souza@email.com",
+    telefone: "(31) 99876-5432",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "avancado",
+  },
+  {
+    id: 4,
+    nome: "Carlos",
+    sobrenome: "Oliveira",
+    email: "carlos.oliveira@email.com",
+    telefone: "(41) 93456-7890",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+  {
+    id: 5,
+    nome: "Ana",
+    sobrenome: "Pereira",
+    email: "ana.pereira@email.com",
+    telefone: "(51) 94567-1234",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "iniciante",
+  },
+  {
+    id: 6,
+    nome: "Roberto",
+    sobrenome: "Ferreira",
+    email: "roberto.ferreira@email.com",
+    telefone: "(61) 95678-2345",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "avancado",
+  },
+  {
+    id: 7,
+    nome: "Juliana",
+    sobrenome: "Costa",
+    email: "juliana.costa@email.com",
+    telefone: "(71) 96789-3456",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+  {
+    id: 8,
+    nome: "Bruno",
+    sobrenome: "Rodrigues",
+    email: "bruno.rodrigues@email.com",
+    telefone: "(81) 97890-4567",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "iniciante",
+  },
+  {
+    id: 9,
+    nome: "Gabriela",
+    sobrenome: "Martins",
+    email: "gabriela.martins@email.com",
+    telefone: "(91) 98901-5678",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+  {
+    id: 10,
+    nome: "Ricardo",
+    sobrenome: "Almeida",
+    email: "ricardo.almeida@email.com",
+    telefone: "(31) 99012-6789",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "avancado",
+  },
+  {
+    id: 11,
+    nome: "Fernanda",
+    sobrenome: "Lopes",
+    email: "fernanda.lopes@email.com",
+    telefone: "(32) 91234-5678",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "iniciante",
+  },
+  {
+    id: 12,
+    nome: "Gustavo",
+    sobrenome: "Ribeiro",
+    email: "gustavo.ribeiro@email.com",
+    telefone: "(33) 92345-6789",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+  {
+    id: 13,
+    nome: "Isabela",
+    sobrenome: "Carvalho",
+    email: "isabela.carvalho@email.com",
+    telefone: "(34) 93456-7890",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "avancado",
+  },
+  {
+    id: 14,
+    nome: "Vinícius",
+    sobrenome: "Santos",
+    email: "vinicius.santos@email.com",
+    telefone: "(35) 94567-8901",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "iniciante",
+  },
+  {
+    id: 15,
+    nome: "Amanda",
+    sobrenome: "Mendes",
+    email: "amanda.mendes@email.com",
+    telefone: "(36) 95678-9012",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+  {
+    id: 16,
+    nome: "Thiago",
+    sobrenome: "Gomes",
+    email: "thiago.gomes@email.com",
+    telefone: "(37) 96789-0123",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "avancado",
+  },
+  {
+    id: 17,
+    nome: "Renata",
+    sobrenome: "Barros",
+    email: "renata.barros@email.com",
+    telefone: "(38) 97890-1234",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "iniciante",
+  },
+  {
+    id: 18,
+    nome: "Eduardo",
+    sobrenome: "Nunes",
+    email: "eduardo.nunes@email.com",
+    telefone: "(39) 98901-2345",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+  {
+    id: 19,
+    nome: "Beatriz",
+    sobrenome: "Fernandes",
+    email: "beatriz.fernandes@email.com",
+    telefone: "(40) 99012-3456",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "avancado",
+  },
+  {
+    id: 20,
+    nome: "Leonardo",
+    sobrenome: "Souza",
+    email: "leonardo.souza@email.com",
+    telefone: "(41) 90123-4567",
+    senha: generateRandomPassword(8), // Senha aleatória
+    categoria: "intermediario",
+  },
+];
+
+export const pessoas = [
+  {
+    nome: "Carlos",
+    sobrenome: "Silva",
+    email: "exemplo1@gmail.com",
+    telefone: "(11) 93141-1476",
+    altura: 1.84,
+    peso: 97.12,
+    imc: 28.83,
+    treinos: Array.from({ length: 10 }, (_, i) => ({
+      data: `02/0${(i % 5) + 1}/2025`,
+      categoria: ["Cardio", "Glúteos", "Pernas", "Costas", "Peitoral"][i % 5],
+      caloriasPerdidas: Math.floor(Math.random() * (600 - 300 + 1)) + 300,
+      duracao: Math.floor(Math.random() * (90 - 30 + 1)) + 30, // Duração entre 30 e 90 minutos
+    })),
+  },
+  {
+    nome: "Fernanda",
+    sobrenome: "Oliveira",
+    email: "exemplo2@gmail.com",
+    telefone: "(11) 91372-9318",
+    altura: 1.6,
+    peso: 86.87,
+    imc: 33.73,
+    treinos: Array.from({ length: 10 }, (_, i) => ({
+      data: `02/0${(i % 5) + 1}/2025`,
+      categoria: ["Cardio", "Glúteos", "Pernas", "Costas", "Peitoral"][i % 5],
+      caloriasPerdidas: Math.floor(Math.random() * (600 - 300 + 1)) + 300,
+      duracao: Math.floor(Math.random() * (90 - 30 + 1)) + 30,
+    })),
+  },
+  {
+    nome: "Lucas",
+    sobrenome: "Santos",
+    email: "exemplo3@gmail.com",
+    telefone: "(11) 97566-3710",
+    altura: 1.66,
+    peso: 55.43,
+    imc: 20.21,
+    treinos: Array.from({ length: 10 }, (_, i) => ({
+      data: `02/0${(i % 5) + 1}/2025`,
+      categoria: ["Cardio", "Glúteos", "Pernas", "Costas", "Peitoral"][i % 5],
+      caloriasPerdidas: Math.floor(Math.random() * (600 - 300 + 1)) + 300,
+      duracao: Math.floor(Math.random() * (90 - 30 + 1)) + 30,
+    })),
+  },
+  {
+    nome: "Ana",
+    sobrenome: "Pereira",
+    email: "exemplo4@gmail.com",
+    telefone: "(11) 91406-1927",
+    altura: 1.81,
+    peso: 85.61,
+    imc: 26.11,
+    treinos: Array.from({ length: 10 }, (_, i) => ({
+      data: `02/0${(i % 5) + 1}/2025`,
+      categoria: ["Cardio", "Glúteos", "Pernas", "Costas", "Peitoral"][i % 5],
+      caloriasPerdidas: Math.floor(Math.random() * (600 - 300 + 1)) + 300,
+      duracao: Math.floor(Math.random() * (90 - 30 + 1)) + 30,
+    })),
+  },
+  {
+    nome: "Roberto",
+    sobrenome: "Costa",
+    email: "exemplo5@gmail.com",
+    telefone: "(11) 95924-9836",
+    altura: 1.87,
+    peso: 59.52,
+    imc: 17.03,
+    treinos: Array.from({ length: 10 }, (_, i) => ({
+      data: `02/0${(i % 5) + 1}/2025`,
+      categoria: ["Cardio", "Glúteos", "Pernas", "Costas", "Peitoral"][i % 5],
+      caloriasPerdidas: Math.floor(Math.random() * (600 - 300 + 1)) + 300,
+      duracao: Math.floor(Math.random() * (90 - 30 + 1)) + 30,
+    })),
+  },
+];
+
+export const treinosPendentes = [
+  {
+    nome: "Felipe Lima",
+    treino: "Musculação - Peito",
+    pendente: true,
+    data: "01/09/2023",
+  },
+  {
+    nome: "Amanda Costa",
+    treino: "Corrida - 5km",
+    pendente: false,
+    data: "01/09/2023",
+  },
+  {
+    nome: "Carlos Silva",
+    treino: "Yoga - Equilíbrio",
+    pendente: true,
+    data: "01/09/2023",
+  },
+  {
+    nome: "Juliana Souza",
+    treino: "Natação - 30 min",
+    pendente: false,
+    data: "01/09/2023",
+  },
+  {
+    nome: "Gabriel Oliveira",
+    treino: "Treinamento Funcional",
+    pendente: true,
+    data: "01/09/2023",
+  },
 ];

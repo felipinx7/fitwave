@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Breakpoints } from "../../../../styles/BreakPoints";
+import { Breakpoints } from "../../../../../styles/BreakPoints";
 
 // Variaveis de Cores
 const colors = {
@@ -11,10 +11,11 @@ const colors = {
   verdeMorto: "rgba(89, 188, 115, 0.82)",
   corCinza: "#CBCBCB",
   backgroundFundoContainers: "rgba(217, 217, 217, 0.52)",
+  verdeFprte: "#057333",
 };
 
 // Criação da Section Geral Para o Conteúdo
-export const Relatorio = styled.section`
+export const Status = styled.section`
   min-height: 100vh;
   width: calc(100% - 300px);
   overflow-y: auto;
@@ -24,7 +25,6 @@ export const Relatorio = styled.section`
   position: relative;
   right: 0;
   padding: 1rem;
-  flex-direction: column;
   background-color: ${colors.backgroundPrimary};
 
   @media ${Breakpoints.lg} {
@@ -34,25 +34,16 @@ export const Relatorio = styled.section`
   }
 `;
 
-export const containerInput = styled.div`
+export const containerInput = styled.input`
   width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2rem;
-`;
-
-export const CampodeInput = styled.input`
-  width: 90%;
-  height: 2.5rem;
+  height: 3rem;
   background-color: ${colors.verdeFraco};
-  padding: 1.5rem;
-  border: none;
   border-radius: 20px;
-  text-align: center;
   font-size: 1.2rem;
+  font-weight: 600;
   color: ${colors.verdeClaro};
+  border: none;
+  text-align: center;
   outline: none;
 
   &::placeholder {
@@ -60,39 +51,38 @@ export const CampodeInput = styled.input`
     font-weight: 600;
     color: ${colors.verdeClaro};
   }
-
-  &:focus {
-    border: 3px solid ${colors.verdeClaro};
-  }
-
-  @media ${Breakpoints.lg} {
-    width: 100%;
-  }
 `;
 
-export const ContainerCards = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  overflow-x: hidden;
-  gap: 1rem;
-`;
-
-export const ContainerMensagem = styled.div`
-  width: 100%;
-  height: 100%;
+export const ContainerFitros = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 `;
 
-export const MensagemNenhumResultado = styled.h1`
+interface FiltrProps {
+  Active: boolean;
+}
+
+export const Filtro = styled.button<FiltrProps>`
+  border: none;
+  background-color: ${(props) =>
+    props.Active ? `${colors.fontverde}` : `${colors.verdeFraco}`};
+  font-size: 1.2rem;
+  width: 50%;
+  height: auto;
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+  border-radius: 20px;
+  color: ${colors.corBranca};
+`;
+
+export const containerCardsClientes = styled.div`
   width: 100%;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 600;
-  color: ${colors.fontverde };
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
 `;
