@@ -29,11 +29,11 @@ import TerceiraImagem from "./img/terceira-imagem.png";
 import QuartaImagem from "./img/quarta-imagem.png";
 import QuintaImagem from "./img/quinta-imagem.png";
 import texturasLinhas from "./img/Textura-linhas.png";
-import GarotoEstera from "./img/garoto-na-estera.svg"
-import IconeAvanço from "./img/IconeAvanço.png"
-import IconeCardAlunos from "./img/IconeCardAlunos.svg"
-import Icone
-
+import GarotoEstera from "./img/garoto-na-estera.svg";
+import IconeAvanço from "./img/IconeAvanço.png";
+import IconeCardAlunos from "./img/IconeCardAlunos.svg";
+import IconeUser from "./img/iconeUser.svg";
+import IconeAltere from "./img/IconeAltere.svg";
 
 export {
   flashIcone,
@@ -69,5 +69,7 @@ export {
   texturasLinhas,
   GarotoEstera,
   IconeAvanço,
-  IconeCardAlunos
+  IconeCardAlunos,
+  IconeUser,
+  IconeAltere,
 };

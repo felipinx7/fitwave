@@ -39,6 +39,10 @@ export const ContainerCardsTreinos = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
+  @media ${Breakpoints.bg} {
+    flex-direction: column;
+  }
 `;
 
 // Card do Total de Alunos
@@ -51,4 +55,47 @@ export const CardTotalAlunos = styled.article`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 1rem;
+  position: relative;
+`;
+
+export const IconeImagens = styled.img`
+  position: absolute;
+  right: 0;
+  transform: translateX(-20%);
+`;
+
+export const ContainerTextos = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+  flex-direction: column;
+  gap: 2rem;
+  line-height: 1;
+`;
+
+export const TextInfo = styled.h2`
+  font-size: 2rem;
+  color: ${colors.corCinza};
+  font-weight: 500;
+`;
+
+export const TextNumero = styled.h1`
+  font-size: 6rem;
+  color: ${colors.corCinza};
+  font-weight: 700;
+`;
+
+export const TextDesempenhoTreinos = styled.h1`
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  padding-top: 2rem;
+  font-weight: 600;
+  color: ${colors.corCinza};
+`;
+
+export const ContainerGrafico = styled.div`
+  width: 100%;
+  height: auto;
 `;
