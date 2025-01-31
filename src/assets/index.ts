@@ -32,6 +32,8 @@ import texturasLinhas from "./img/Textura-linhas.png";
 import GarotoEstera from "./img/garoto-na-estera.svg"
 import IconeAvanço from "./img/IconeAvanço.png"
 import IconeCardAlunos from "./img/IconeCardAlunos.svg"
+import Icone
+
 
 export {
   flashIcone,

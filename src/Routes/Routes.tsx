@@ -19,6 +19,7 @@ import Checkbox from "../components/texte/texte";
 import { SectionCliente } from "../pages/PageAdministrador/Sections/SectionClientes/SectionClientes";
 import { SectionColaboradores } from "../pages/PageAdministrador/Sections/SectionColaboradores/SectionColaboradores";
 import { PagePersonal } from "../pages/PagePersonal";
+import { PageCliente } from "../pages/PageCliente";
 
 export const Routes = () => {
   const [formData, setFormData] = useState({
@@ -109,6 +110,10 @@ export const Routes = () => {
     {
       path: "PagePersonal",
       element: <PagePersonal/>
+    },
+    {
+      path: "PageAluno",
+      element: <PageCliente/>
     }
   ]);
 

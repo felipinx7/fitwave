@@ -3,6 +3,7 @@ import { FaDumbbell } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
 import { IoIosPaper } from "react-icons/io";
 import { FaRegUserCircle } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa";
 
 export const LinkSideBarsPersonal = [
@@ -12,6 +13,13 @@ export const LinkSideBarsPersonal = [
   { nome: "Relatorio", id: "Relatorio", icone: IoIosPaper, param: 4 },
   { nome: "Perfil", id: "Perfil", icone: FaRegUserCircle, param: 5 },
   { nome: "Status", id: "Status", icone: FaCalendarCheck, param: 6 },
+];
+
+export const LinksSideBarsNavegacao = [
+  { nome: "Home", id: "Home", icone: GoHomeFill, param: 1 },
+  { nome: "Treinos", id: "Treinos", icone: FaDumbbell, param: 2 },
+  { nome: "Notiificação", id: "Notificacao", icone: FaBell, param: 3 },
+  { nome: "Perfil", id: "Perfil", icone: FaRegUserCircle, param: 4 },
 ];
 
 export const LinkSideBarsCliente = [
@@ -573,5 +581,180 @@ export const treinosPendentes = [
     treino: "Treinamento Funcional",
     pendente: true,
     data: "01/09/2023",
+  },
+];
+
+export const notificacoes = [
+  {
+    texto: "Olá Felipe, há treinos novos disponíveis! Dá uma olhada.",
+    data: "2025-01-30",
+  },
+  {
+    texto:
+      "Olá Felipe, você melhorou seu rendimento em 15% nos últimos 15 dias. Parabéns!",
+    data: "2025-01-29",
+  },
+  {
+    texto: "Felipe, não se esqueça de concluir seu treino de hoje!",
+    data: "2025-01-28",
+  },
+  {
+    texto:
+      "Ótimo trabalho, Felipe! Você completou todos os treinos desta semana.",
+    data: "2025-01-27",
+  },
+  {
+    texto: "Novo treino liberado! Hora de evoluir ainda mais, Felipe!",
+    data: "2025-01-26",
+  },
+  {
+    texto: "Felipe, sua frequência nos treinos está excelente! Continue assim.",
+    data: "2025-01-25",
+  },
+  {
+    texto:
+      "Seu desempenho está incrível, Felipe! Mais um treino concluído com sucesso.",
+    data: "2025-01-24",
+  },
+  {
+    texto:
+      "Fique de olho, Felipe! Você está a apenas um treino de bater seu recorde semanal.",
+    data: "2025-01-23",
+  },
+  {
+    texto: "Olá Felipe, lembrete: amanhã tem treino novo te esperando!",
+    data: "2025-01-22",
+  },
+  {
+    texto: "Felipe, você atingiu 80% da sua meta mensal! Continue no ritmo.",
+    data: "2025-01-21",
+  },
+];
+
+export const ButtonFiltroCliente = [
+  { nome: "Treinos Pendentes", param: 1 },
+  { nome: "Treinos Concluidos", param: 2 },
+];
+export const treinosClienteTela = [
+  {
+    id: 1,
+    nome: "Explosão de Cardio",
+    personal: "Felipe Lima",
+    envio: "25/01/2025",
+    pendencia: true,
+    duracao: "30 minutos",
+    series: "4",
+    repeticoes: "Tempo",
+    intervalo: "30s",
+    descricao: "Treino cardiovascular intenso para queima de gordura.",
+  },
+  {
+    id: 2,
+    nome: "Força Total",
+    personal: "Mariana Souza",
+    envio: "20/01/2025",
+    pendencia: false,
+    duracao: "45 minutos",
+    series: "5",
+    repeticoes: "8-10",
+    intervalo: "60s",
+    descricao: "Levantamento de peso para ganho de força máxima.",
+  },
+  {
+    id: 3,
+    nome: "Resistência Extrema",
+    personal: "Carlos Mendes",
+    envio: "18/01/2025",
+    pendencia: true,
+    duracao: "40 minutos",
+    series: "4",
+    repeticoes: "12-15",
+    intervalo: "45s",
+    descricao: "Foco na resistência muscular com exercícios de alta repetição.",
+  },
+  {
+    id: 4,
+    nome: "Definição Muscular",
+    personal: "Ana Oliveira",
+    envio: "22/01/2025",
+    pendencia: false,
+    duracao: "50 minutos",
+    series: "4",
+    repeticoes: "10-12",
+    intervalo: "45s",
+    descricao: "Treino para tonificação muscular e redução de gordura.",
+  },
+  {
+    id: 5,
+    nome: "Treino HIIT Avançado",
+    personal: "Lucas Silva",
+    envio: "19/01/2025",
+    pendencia: true,
+    duracao: "25 minutos",
+    series: "Circuito",
+    repeticoes: "Tempo",
+    intervalo: "15s",
+    descricao:
+      "Treino intervalado de alta intensidade para explosão e condicionamento.",
+  },
+  {
+    id: 6,
+    nome: "Mobilidade e Flexibilidade",
+    personal: "Beatriz Rocha",
+    envio: "24/01/2025",
+    pendencia: false,
+    duracao: "35 minutos",
+    series: "3",
+    repeticoes: "Tempo",
+    intervalo: "20s",
+    descricao: "Exercícios para aumentar a flexibilidade e evitar lesões.",
+  },
+  {
+    id: 7,
+    nome: "Core de Aço",
+    personal: "Ricardo Alves",
+    envio: "21/01/2025",
+    pendencia: true,
+    duracao: "30 minutos",
+    series: "4",
+    repeticoes: "15-20",
+    intervalo: "30s",
+    descricao: "Treino focado no fortalecimento do abdômen e lombar.",
+  },
+  {
+    id: 8,
+    nome: "Potência Explosiva",
+    personal: "Fernanda Lima",
+    envio: "23/01/2025",
+    pendencia: false,
+    duracao: "40 minutos",
+    series: "4",
+    repeticoes: "6-8",
+    intervalo: "60s",
+    descricao: "Treino para aumentar potência muscular e velocidade.",
+  },
+  {
+    id: 9,
+    nome: "Treino Funcional",
+    personal: "Gustavo Martins",
+    envio: "17/01/2025",
+    pendencia: true,
+    duracao: "45 minutos",
+    series: "5",
+    repeticoes: "Tempo",
+    intervalo: "40s",
+    descricao: "Movimentos naturais do corpo para condicionamento geral.",
+  },
+  {
+    id: 10,
+    nome: "Condicionamento de Atleta",
+    personal: "Juliana Torres",
+    envio: "16/01/2025",
+    pendencia: false,
+    duracao: "50 minutos",
+    series: "5",
+    repeticoes: "10-12",
+    intervalo: "60s",
+    descricao: "Treino voltado para resistência, força e velocidade.",
   },
 ];
