@@ -23,7 +23,7 @@ export const SectionSexo: React.FC<SectionSexoProps> = ({
   const progresso = (etapa / (etapaTotais - 1)) * 100;
 
   const LinkSectionPartCorpoFpcar = () => {
-    navigate("/focoMuscular");
+    navigate("/Objetivos");
   };
 
   const handleSexChange = (e: React.ChangeEvent<HTMLInputElement>) => {

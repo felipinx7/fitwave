@@ -37,13 +37,10 @@ export const SectionAluno: React.FC = () => {
               <FaTimes size={20} />
             </S.CloseButton>
             <S.Titulo>Editar Info</S.Titulo>
-            <S.Form>
-              <S.FotoPerfil
-                type="file"
-                accept="*/image"
-                placeholder="d"
-                required
-              />
+
+            {/* Formulário Cadastro */}
+            <S.Form method="">
+              <S.FotoPerfil type="file" accept="image/*" required />
               <S.Label>Nome:</S.Label>
               <S.Input
                 type="text"
@@ -68,19 +65,74 @@ export const SectionAluno: React.FC = () => {
                 required
               />
 
-              <S.Label>Telefone:</S.Label>
-              <S.Input
-                type="text"
-                name="telefone"
-                placeholder="(XX) XXXXX-XXXX"
-                required
-              />
-
               <S.Label>Senha:</S.Label>
               <S.Input
                 type="password"
                 name="senha"
                 placeholder="Digite sua senha"
+                required
+              />
+
+              <S.Label>Dia de Pagamento:</S.Label>
+              <S.Input type="date" name="diaPagamento" required />
+
+              <S.Label>Sexo:</S.Label>
+              <S.Select name="sexo" required>
+                <option value="">Selecione o sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+              </S.Select>
+
+              <S.Label>Área de Foco:</S.Label>
+              <S.Select name="areaFoco" required>
+                <option value="">Selecione a área de foco</option>
+                <option value="corpoTodo">Corpo Todo</option>
+                <option value="braco">Braço</option>
+                <option value="perna">Perna</option>
+                <option value="costa">Costa</option>
+                <option value="peitoral">Peitoral</option>
+                <option value="abdomen">Abdômen</option>
+              </S.Select>
+
+              <S.Label>Objetivo:</S.Label>
+              <S.Select name="objetivo" required>
+                <option value="">Selecione o objetivo</option>
+                <option value="perderPeso">Perder Peso</option>
+                <option value="ganharMusculos">Ganhar Músculos</option>
+                <option value="manterForma">Manter Forma</option>
+              </S.Select>
+
+              <S.Label>Categoria:</S.Label>
+              <S.Select name="categoria" required>
+                <option value="">Selecione a categoria</option>
+                <option value="iniciante">Iniciante</option>
+                <option value="intermediario">Intermediário</option>
+                <option value="avancado">Avançado</option>
+              </S.Select>
+
+              <S.Label>Treinos Semanais:</S.Label>
+              <S.Input
+                type="number"
+                name="treinosSemanais"
+                placeholder="Número de treinos por semana"
+                required
+                maxLength={7}
+                minLength={1} 
+              />
+
+              <S.Label>Peso (kg):</S.Label>
+              <S.Input
+                type="number"
+                name="peso"
+                placeholder="Digite o peso"
+                required
+              />
+
+              <S.Label>Altura (cm):</S.Label>
+              <S.Input
+                type="number"
+                name="altura"
+                placeholder="Digite a altura"
                 required
               />
 

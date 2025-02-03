@@ -15,7 +15,7 @@ export const SectionPesoAltura: React.FC = () => {
   const navigate = useNavigate()
 
   const LinkPagePlano = () =>{
-    navigate("/plano")
+    navigate("/diaPagamento")
   }
 
   return (

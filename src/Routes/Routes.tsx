@@ -7,7 +7,6 @@ import { SectionSexo } from "../pages/CadastroCorpo/Sections/SectionSexo/Cadastr
 import { SectionCorpo } from "../pages/CadastroCorpo";
 import { SectionParteCorpoFocar } from "../pages/CadastroCorpo/Sections/SectionParteCorpoFocar/SectionParteCorpoFocar";
 import { SectionObjetivos } from "../pages/CadastroCorpo/Sections/SectionObetivo/SectionObjetivo";
-import { SectionFlexoes } from "../pages/CadastroCorpo/Sections/SectionFlexoes/SectionFlexoes";
 import { SectionDiasSemana } from "../pages/CadastroCorpo/Sections/SectionDiasSemana/SectionDiasSemana";
 import { SectionPesoAltura } from "../pages/CadastroCorpo/Sections/SectionPesoAltura/SectionPesoAltura";
 import { SectionPlanoPronto } from "../pages/CadastroCorpo/Sections/SectionPlanoPronto/SectionPlanoPronto";
@@ -70,20 +69,12 @@ export const Routes = () => {
       element: <SectionObjetivos />,
     },
     {
-      path: "flexao",
-      element: <SectionFlexoes />,
-    },
-    {
       path: "treinoDiaSemana",
       element: <SectionDiasSemana />,
     },
     {
       path: "pesoAltura",
       element: <SectionPesoAltura />,
-    },
-    {
-      path: "plano",
-      element: <SectionPlanoPronto />,
     },
     {
       path: "diaPagamento",

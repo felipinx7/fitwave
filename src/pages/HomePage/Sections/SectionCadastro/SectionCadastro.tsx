@@ -5,10 +5,16 @@ import React, { useState } from "react";
 
 import * as S from "./styles";
 import { ButtonTreinar } from "../../../../components/ButtonTreinar/ButtonTreinar";
+import { useNavigate } from "react-router-dom";
 
 export const SectionCadastro: React.FC = () => {
   const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
 
+  const linkCadastroCorpo = () => {
+    navigate("/CadastroCorpo");
+    console.log("Redirecionando....")
+  };
   const handlePhoneChange = (e: any) => {
     let value = e.target.value;
 
@@ -59,9 +65,13 @@ export const SectionCadastro: React.FC = () => {
           </S.ContainerTextosForms>
           <S.Formulario>
             <S.LabelCadastro>Nome</S.LabelCadastro>
-            <S.InputCadastro type="text" placeholder="Nome completo" required/>
+            <S.InputCadastro type="text" placeholder="Nome completo" required />
             <S.LabelCadastro>E-mail</S.LabelCadastro>
-            <S.InputCadastro type="email" placeholder="Informe seu e-mail" required/>
+            <S.InputCadastro
+              type="email"
+              placeholder="Informe seu e-mail"
+              required
+            />
             <S.LabelCadastro>Contato Telofónico</S.LabelCadastro>
             <S.InputCadastro
               type="tel"
@@ -70,7 +80,7 @@ export const SectionCadastro: React.FC = () => {
               required
               onChange={handlePhoneChange}
             />
-            <S.ContanierButton>
+            <S.ContanierButton onClick={linkCadastroCorpo}>
               <ButtonTreinar />
             </S.ContanierButton>
           </S.Formulario>

@@ -5,7 +5,6 @@ import { CardFocoMuscular } from "../../../../components/CardFocoMuscular/CardFo
 import { useNavigate } from "react-router-dom";
 
 export const SectionParteCorpoFocar: React.FC = () => {
-
   // Parte da barra de progresso
   const [etapa, setEtapa] = useState(2);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
@@ -13,26 +12,23 @@ export const SectionParteCorpoFocar: React.FC = () => {
 
   const progresso = (etapa / (etapaTotais - 1)) * 100;
 
-
-
   // Função para armazenar mais de uma informação do corpo da pessoa
   const handleSelectionChange = (parteCorpo: string) => {
     setSelectedValues((prevSelectedValues) => {
       if (prevSelectedValues.includes(parteCorpo)) {
-        return prevSelectedValues.filter(value => value !== parteCorpo);
+        return prevSelectedValues.filter((value) => value !== parteCorpo);
       } else {
         return [...prevSelectedValues, parteCorpo];
       }
     });
   };
 
-
   // Link de Navegação para a rota obejetivos
-   const navigate = useNavigate()
-  
-    const LinkSectionObjetivos = () =>{
-      navigate("/Objetivos")
-    }
+  const navigate = useNavigate();
+
+  const LinkSectionObjetivos = () => {
+    navigate("/treinoDiaSemana");
+  };
 
   return (
     <S.SectionFocarCorpo>
@@ -51,12 +47,11 @@ export const SectionParteCorpoFocar: React.FC = () => {
                 parteCorpo="CORPO TODO"
                 selectedValues={selectedValues}
                 onFocusChange={handleSelectionChange}
-                
-/>
+              />
               <CardFocoMuscular
-               parteCorpo="BRAÇO"
-               selectedValues={selectedValues}
-               onFocusChange={handleSelectionChange}
+                parteCorpo="BRAÇO"
+                selectedValues={selectedValues}
+                onFocusChange={handleSelectionChange}
               />
               <CardFocoMuscular
                 parteCorpo="PEITO"
@@ -74,7 +69,9 @@ export const SectionParteCorpoFocar: React.FC = () => {
                 onFocusChange={handleSelectionChange}
               />
             </S.ContainerCards>
-            <S.ButtonProximo onClick={LinkSectionObjetivos}>Próximo</S.ButtonProximo>
+            <S.ButtonProximo onClick={LinkSectionObjetivos}>
+              Próximo
+            </S.ButtonProximo>
           </S.FormFocoMuscular>
         </S.ContainerOpcoes>
       </S.ContainerPrincipal>

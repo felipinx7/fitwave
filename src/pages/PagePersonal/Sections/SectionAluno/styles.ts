@@ -11,7 +11,7 @@ const colors = {
   verdeMorto: "rgba(89, 188, 115, 0.82)",
   corCinza: "#CBCBCB",
   backgroundFundoContainers: "rgba(217, 217, 217, 0.52)",
-  verdeFprte: "#057333",
+  verdeForte: "#057333", // Correção do nome da variável
 };
 
 // Criação da Section Geral Para o Conteúdo
@@ -76,11 +76,22 @@ export const Selectnivel = styled.select`
   font-weight: 600;
   font-size: 1.2rem;
   outline: none;
+
+  &:focus {
+    border: 2px solid ${colors.fontverde};
+    background-color: ${colors.backgroundFundoContainers};
+  }
+
+  option {
+    background-color: ${colors.corBranca};
+    color: ${colors.verdeForte}; // Correção da cor
+    padding: 0.5rem;
+  }
 `;
 
 // Fim dos Campos de Pesquisa
 
-// Parte dos ALunos
+// Parte dos Alunos
 
 export const containerLinha = styled.div`
   width: 100%;
@@ -125,7 +136,7 @@ export const containerAdicionarCliente = styled.div`
   height: 4rem;
   border-radius: 50%;
   position: fixed;
-  background-color: ${colors.verdeFprte};
+  background-color: ${colors.verdeForte};
   font-size: 3rem;
   font-weight: 600;
   display: flex;
@@ -151,15 +162,38 @@ export const ContainerCadastarCliente = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `;
 
+export const Select = styled.select`
+  height: 2.5rem;
+  border-radius: 10px;
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+  color: #777;
+`;
+
 export const CadastroContainer = styled.div`
-  background-color: ${colors.verdeFprte};
+  background-color: ${colors.verdeForte};
   width: 400px;
+  height: 70%;
   padding: 20px;
   border-radius: 12px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar{
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track{
+    background-color: ${colors.backgroundFundoContainers};
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: ${colors.verdeClaro};
+    border-radius: 10px;
+  }
 `;
 
 export const CloseButton = styled.div`
@@ -201,6 +235,7 @@ export const Input = styled.input`
   padding: 8px;
   border-radius: 6px;
   margin-bottom: 10px;
+  color: #777;
   width: 100%;
   outline: none;
 `;

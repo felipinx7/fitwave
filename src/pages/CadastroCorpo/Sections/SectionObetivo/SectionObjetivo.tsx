@@ -34,7 +34,7 @@ export const SectionObjetivos: React.FC = () => {
   const navigate = useNavigate();
 
   const LinkPageFlexao = () => {
-    navigate("/flexao");
+    navigate("/focoMuscular");
   };
 
   return (

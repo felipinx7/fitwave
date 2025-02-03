@@ -168,12 +168,13 @@ export const labelInput = styled.p`
 
 export const InputForm = styled.input`
   width: 80%;
-  height: auto;
+  height: 100%;
   background-color: transparent;
   border: none;
   color: ${Colors.colorPlaceholder};
   font-weight: 500;
   font-size: 1.3rem;
+  outline: none;
 
   &::placeholder {
     color: ${Colors.colorPlaceholder};

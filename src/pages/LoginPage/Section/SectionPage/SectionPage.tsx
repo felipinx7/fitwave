@@ -16,7 +16,7 @@ export const SectionPage: React.FC = () => {
   const navigate = useNavigate()
 
   const LinkParaPagePreload = () =>{
-    navigate("/telaCarregamento")
+    navigate("/PagePersonal")
   }
 
 
