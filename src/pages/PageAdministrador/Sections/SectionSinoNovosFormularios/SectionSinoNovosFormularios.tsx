@@ -1,76 +1,48 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styles";
 import { CardClientesNovos } from "../../../../components/CardNovosClientes/CardNovosClientes";
-import ImageTeste from "../../../../assets/img/fotoPerfilMulher.svg";
+import { NovosUsuarios } from "../../../../constants/constasts";
 
 type User = {
   nome: string;
   sobrenome: string;
   email: string;
-  dataDeEnvio: string;
-  fotoPerfil: string;
-  isNovo: boolean;
+  data: string;
+  foto: string;
+  status: boolean;
+  dataDePagamento: string;
+  areaDeFoco: string;
+  categoria: string;
+  peso: number;
+  telefone: string;
+  senha: string;
+  sexo: string;
+  principaisObjetivos: string;
+  treinosSemanais: number;
+  altura: number;
 };
 
 interface SectinSinoNovosFormulariosProps {
   numeroNotificacao: number;
   onNotificacoesChange: (num: number) => void;
-  isActive: boolean
+  isActive: boolean;
+  handleShowContainer?: () => void;
 }
 
-export const SectionSinoNovosFormularios: React.FC<SectinSinoNovosFormulariosProps> = ({
+export const SectionSinoNovosFormularios: React.FC<
+  SectinSinoNovosFormulariosProps
+> = ({
   numeroNotificacao,
   onNotificacoesChange,
   isActive,
+  handleShowContainer,
 }) => {
   const [ValueInput, setValueInput] = useState("");
-  const [Newusers, setNewusers] = useState<User[]>([
-    {
-      nome: "Juan",
-      sobrenome: "Carvalho",
-      email: "juan.carvalho@example.com",
-      dataDeEnvio: "18 Jan 2023, 00:00",
-      fotoPerfil: ImageTeste,
-      isNovo: true,
-    },
-    {
-      nome: "Ana",
-      sobrenome: "Silva",
-      email: "ana.silva@example.com",
-      dataDeEnvio: "18 Jan 2027, 00:00",
-      fotoPerfil: ImageTeste,
-      isNovo: true,
-    },
-    {
-      nome: "Carlos",
-      sobrenome: "Oliveira",
-      email: "carlos.oliveira@example.com",
-      dataDeEnvio: "18 Jan 2025, 00:00",
-      fotoPerfil: ImageTeste,
-      isNovo: true,
-    },
-    {
-      nome: "Mariana",
-      sobrenome: "Souza",
-      email: "mariana.souza@example.com",
-      dataDeEnvio: "18 Jan 2025, 00:00",
-      fotoPerfil: ImageTeste,
-      isNovo: true,
-    },
-    {
-      nome: "Fernanda",
-      sobrenome: "Lima",
-      email: "fernanda.lima@example.com",
-      dataDeEnvio: "18 Jan 2025, 00:00",
-      fotoPerfil: ImageTeste,
-      isNovo: true,
-    },
-  ]);
-
+  const [Newusers, setNewusers] = useState(NovosUsuarios);
   const [isclicked, setsclicked] = useState<number | null>(null);
 
   const NumeroDeCardsNovos = (arr: User[]): number =>
-    arr.filter((user) => user.isNovo).length;
+    arr.filter((user) => user.status).length;
 
   useEffect(() => {
     onNotificacoesChange(NumeroDeCardsNovos(Newusers));
@@ -82,20 +54,20 @@ export const SectionSinoNovosFormularios: React.FC<SectinSinoNovosFormulariosPro
 
   const handleNovoCard = (index: number) => {
     const updatedUsers = [...Newusers];
-    updatedUsers[index].isNovo = false;
+    updatedUsers[index].status = false;
     setNewusers(updatedUsers);
   };
 
-  const filteredUsers = Newusers
-    .filter((user) => user.nome.toLowerCase().includes(ValueInput.toLowerCase())) // Filtro por pesquisa
-    .filter((user) => {
-      if (isclicked === 1) {
-        return user.isNovo === true; 
-      }
-      return true;  
-    });
+  const filteredUsers = Newusers.filter((user) =>
+    user.nome.toLowerCase().includes(ValueInput.toLowerCase())
+  ).filter((user) => {
+    if (isclicked === 1) {
+      return user.status === true;
+    }
+    return true;
+  });
 
-  const todosLidos = Newusers.every((user) => user.isNovo === false);
+  const todosLidos = Newusers.every((user) => user.status === false);
 
   return (
     <S.SectionSino>
@@ -127,19 +99,32 @@ export const SectionSinoNovosFormularios: React.FC<SectinSinoNovosFormulariosPro
       <S.ContaierCardsNovosClientes>
         {filteredUsers.length === 0 ? (
           <S.ContainerTextTodoslidos>
-            <S.MensagemTodosLidos>Nehum Resultado encontrado  :(</S.MensagemTodosLidos>
+            <S.MensagemTodosLidos>
+              Nenhum Resultado encontrado :(
+            </S.MensagemTodosLidos>
           </S.ContainerTextTodoslidos>
         ) : (
           filteredUsers.map((user, index) => (
             <CardClientesNovos
               key={index}
+              dataDeEnvio={user.data}
+              isNovo={user.status}
+              handleNovoCard={() => handleNovoCard(index)}
+              handleShowContainer={handleShowContainer}
+              foto={user.foto}
+              email={user.email}
+              dataPagamento={user.dataDePagamento}
+              AreaFoco={user.areaDeFoco}
+              Categoria={user.categoria}
+              Peso={user.peso}
+              telefone={user.telefone}
+              senha={user.senha}
+              sexo={user.sexo}
+              PrincipalObjetivo={user.principaisObjetivos}
+              TreinoSemanais={user.treinosSemanais}
+              Altura={user.altura}
               nome={user.nome}
               sobrenome={user.sobrenome}
-              emaill={user.email}
-              dataDeEnvio={user.dataDeEnvio}
-              foto={user.fotoPerfil}
-              isNovo={user.isNovo}
-              handleNovoCard={() => handleNovoCard(index)}
             />
           ))
         )}

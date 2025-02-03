@@ -9,7 +9,7 @@ import { SectionTreino } from "../../pages/PagePersonal/Sections/SectionTreino/S
 import { SectionAluno } from "../../pages/PagePersonal/Sections/SectionAluno/SectionAlunos";
 import { SectionRelatorio } from "../../pages/PagePersonal/Sections/SectionRelatorios/SectionRelatorio";
 import { SectionPerfil } from "../../pages/PagePersonal/Sections/SectionPerfil/SectionPerfil";
-import { SectionStatus } from "../../pages/PagePersonal/Sections/SectionAluno/SectionStatus/SectionStatus";
+import { SectionStatus } from "../../pages/PagePersonal/SectionStatus/SectionStatus";
 
 export const SideBar: React.FC = () => {
   // PARTE DOS ESTADOS

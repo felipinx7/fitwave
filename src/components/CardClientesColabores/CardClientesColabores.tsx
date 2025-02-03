@@ -15,6 +15,7 @@ interface CardClienteseColaboradoreProps {
   removerpessoa: () => void;
   adicionarClasse: () => void;
   adicionar: boolean;
+  onClick?: () => void;
 }
 
 export const CardClientesColabores: React.FC<CardClienteseColaboradoreProps> = (
@@ -23,13 +24,11 @@ export const CardClientesColabores: React.FC<CardClienteseColaboradoreProps> = (
   const [showCardInfo, setshowCardInfo] = useState(false);
   const [ToggleIcone, setToggleIcone] = useState(false);
   const [Ativo, setAtivo] = useState<string>(props.Status || "Ativo");
-  const [clicou, setclicou]= useState(false)
+  const [clicou, setclicou] = useState(false);
 
-
-  const handleClick = () =>{
-    setclicou(!clicou)
-  }
-  
+  const handleClick = () => {
+    setclicou(!clicou);
+  };
 
   useEffect(() => {
     setAtivo(props.Status);

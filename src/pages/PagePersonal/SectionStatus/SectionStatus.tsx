@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import { HeaderInfo } from "../../../../../components/HeaderInfo/HeaderInfo";
-import { CardStatus } from "../../../../../components/CardStatus/CardStatus";
-import { treinosPendentes } from "../../../../../constants/constasts";
+import { HeaderInfo } from "../../../components/HeaderInfo/HeaderInfo";
+import { CardStatus } from "../../../components/CardStatus/CardStatus";
+import { treinosPendentes } from "../../../constants/constasts";
 
 export const SectionStatus: React.FC = () => {
   const [treinos, setTreinos] = useState(treinosPendentes);
@@ -15,7 +15,7 @@ export const SectionStatus: React.FC = () => {
   };
 
   const filteredTreinos = treinos.filter(treino =>
-    filtro === "pendentes" ? treino.pendente : !treino.pendente
+    filtro === "concluidos" ? !treino.pendente : treino.pendente
   );
 
   return (

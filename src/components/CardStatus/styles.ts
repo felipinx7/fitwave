@@ -30,7 +30,7 @@ export const Card = styled.article<CardProps>`
   align-items: center;
   justify-content: space-between;
   background-color: ${(props) =>
-    props.isChecked ? `${colors.FundoCardChecked}` : `${colors.fundoVermelho}`};
+    props.isChecked ? `${colors.fundoVermelho}` : `${colors.FundoCardChecked}`};
 `;
 
 export const ContainerPerfil = styled.div`
@@ -83,7 +83,7 @@ export const divPendente = styled.div<CardProps>`
   background-color: ${colors.vermelho};
   border-radius: 10;
   font-size: 1.2rem;
-  display: ${(props) => (props.isChecked ? "none" : "flex")};
+  display: ${(props) => (props.isChecked ? "flex" : "none")};
   justify-content: center;
   align-items: center;
   color: ${colors.corBranca};
@@ -96,5 +96,5 @@ export const ContainerData = styled.p<CardProps>`
   font-size: 1.2rem;
   font-weight: 600;
   color: ${colors.corBranca};
-  display: ${(props) => (props.isChecked ? "flex" : "none")};
+  display: ${(props) => (props.isChecked ? "none" : "flex")};
 `;

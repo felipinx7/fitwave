@@ -34,6 +34,7 @@ import IconeAvanço from "./img/IconeAvanço.png";
 import IconeCardAlunos from "./img/IconeCardAlunos.svg";
 import IconeUser from "./img/iconeUser.svg";
 import IconeAltere from "./img/IconeAltere.svg";
+import logoFitwaveVerde from "./img/logoFitwave-verde.png";
 
 export {
   flashIcone,
@@ -72,4 +73,5 @@ export {
   IconeCardAlunos,
   IconeUser,
   IconeAltere,
+  logoFitwaveVerde
 };

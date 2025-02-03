@@ -8,6 +8,8 @@ import * as S from "./styles";
 import { SectionSinoNovosFormularios } from "../SectionSinoNovosFormularios/SectionSinoNovosFormularios";
 import { CardClientesColabores } from "../../../../components/CardClientesColabores/CardClientesColabores";
 import { ContainerInfoCards } from "../../../../components/ContainerIndoCard/ContainerIndoCard";
+import { NovosUsuarios } from "../../../../constants/constasts";
+import { SectionNovosClientes } from "../SectionNovosClientes/SectionNovosClientes";
 
 export const SectionCliente: React.FC = () => {
   const [numeroDeNotificacoes, setNumeroDeNotificacoes] = useState(0);
@@ -15,49 +17,13 @@ export const SectionCliente: React.FC = () => {
   const [showOpcaoTroca, setShowOpcaoTroca] = useState(false);
   const [showContainer, setShowContainer] = useState(true);
   const [filtro, setFiltro] = useState("");
-  const [pessoas, setPessoas] = useState([
-    {
-      nome: "Juan",
-      sobrenome: "Carvalho",
-      email: "juan.carvalho@example.com",
-      status: true,
-      dataDeEntrada: "2009-09-09",
-      foto: ImagemExemplo,
-    },
-    {
-      nome: "Ana",
-      sobrenome: "Silva",
-      email: "ana.silva@example.com",
-      status: false,
-      dataDeEntrada: "2015-03-15",
-      foto: ImagemExemplo,
-    },
-    {
-      nome: "Carlos",
-      sobrenome: "Oliveira",
-      email: "carlos.oliveira@example.com",
-      status: true,
-      dataDeEntrada: "2020-07-22",
-      foto: ImagemExemplo,
-    },
-    {
-      nome: "Mariana",
-      sobrenome: "Souza",
-      email: "mariana.souza@example.com",
-      status: true,
-      dataDeEntrada: "2018-01-01",
-      foto: ImagemExemplo,
-    },
-    {
-      nome: "Fernanda",
-      sobrenome: "Lima",
-      email: "fernanda.lima@example.com",
-      status: false,
-      dataDeEntrada: "2016-10-12",
-      foto: ImagemExemplo,
-    },
-  ]);
+  const [pessoas, setPessoas] = useState(NovosUsuarios);
+  const [clienteSelecionado, setClienteSelecionado] = useState(null);
+  const [showContainerForm, setshowContainerForm] = useState(false);
 
+  const handleShowContainerForm = () => {
+    setshowContainerForm((prev) => !prev);
+  };
   const filteredPessoas = pessoas.filter((pessoa) =>
     pessoa.nome.toLowerCase().includes(filtro.toLowerCase())
   );
@@ -72,6 +38,11 @@ export const SectionCliente: React.FC = () => {
 
   const handleFiltroChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFiltro(e.target.value);
+  };
+
+  // Função para selecionar um cliente e preencher o formulário com seus dados
+  const selecionarCliente = (cliente: any) => {
+    setClienteSelecionado(cliente);
   };
 
   return (
@@ -120,12 +91,13 @@ export const SectionCliente: React.FC = () => {
                 nome={pessoa.nome}
                 sobrenome={pessoa.sobrenome}
                 email={pessoa.email}
-                dataEntrada={pessoa.dataDeEntrada}
+                dataEntrada={pessoa.data}
                 Status={pessoa.status ? "Ativo" : "Inativo"}
-                fotoPerfil={pessoa.foto}
+                fotoPerfil={pessoa.foto || ImagemExemplo}
                 removerpessoa={() => removerPessoa(index)}
                 adicionarClasse={toggleAdicionarClasse}
                 adicionar={isActive}
+                onClick={() => selecionarCliente(pessoa)}
               />
             ))}
           </S.ContainerCardColaboradores>
@@ -135,6 +107,7 @@ export const SectionCliente: React.FC = () => {
           isActive={isActive}
           numeroNotificacao={numeroDeNotificacoes}
           onNotificacoesChange={setNumeroDeNotificacoes}
+          handleShowContainer={handleShowContainerForm}
         />
       )}
     </>

@@ -20,6 +20,7 @@ import { SectionCliente } from "../pages/PageAdministrador/Sections/SectionClien
 import { SectionColaboradores } from "../pages/PageAdministrador/Sections/SectionColaboradores/SectionColaboradores";
 import { PagePersonal } from "../pages/PagePersonal";
 import { PageCliente } from "../pages/PageCliente";
+import { SectionNovosClientes } from "../pages/PageAdministrador/Sections/SectionNovosClientes/SectionNovosClientes";
 
 export const Routes = () => {
   const [formData, setFormData] = useState({
@@ -48,15 +49,17 @@ export const Routes = () => {
     },
     {
       path: "telaCarregamento",
-      element: <SectionTelaCarregamento/>
+      element: <SectionTelaCarregamento />,
     },
     {
       path: "CadastroCorpo",
-      element: <SectionCorpo/>,
+      element: <SectionCorpo />,
     },
     {
       path: "sexo",
-      element: <SectionSexo formData={formData} onSexChange={handleSexChange} />,
+      element: (
+        <SectionSexo formData={formData} onSexChange={handleSexChange} />
+      ),
     },
     {
       path: "focoMuscular",
@@ -64,59 +67,62 @@ export const Routes = () => {
     },
     {
       path: "Objetivos",
-      element: <SectionObjetivos/>
+      element: <SectionObjetivos />,
     },
     {
       path: "flexao",
-      element: <SectionFlexoes/>
+      element: <SectionFlexoes />,
     },
     {
       path: "treinoDiaSemana",
-      element: <SectionDiasSemana/>
+      element: <SectionDiasSemana />,
     },
     {
       path: "pesoAltura",
-      element: <SectionPesoAltura/>
+      element: <SectionPesoAltura />,
     },
     {
       path: "plano",
-      element: <SectionPlanoPronto/>
+      element: <SectionPlanoPronto />,
     },
     {
       path: "diaPagamento",
-      element: <SectionDiaPagamento/>
+      element: <SectionDiaPagamento />,
     },
     {
       path: "FinalizarCadastro",
-      element: <SectionCadastroFinalizado/>
+      element: <SectionCadastroFinalizado />,
     },
 
     {
       path: "PageAdmin",
-      element: <PageAdministradora/>
+      element: <PageAdministradora />,
     },
     {
       path: "teste",
-      element: <Checkbox/>
+      element: <Checkbox />,
     },
     {
       path: "Cliente",
-      element: <SectionCliente/>
+      element: <SectionCliente />,
     },
     {
       path: "Colaborador",
-      element: <SectionColaboradores/>
+      element: <SectionColaboradores />,
     },
     {
       path: "PagePersonal",
-      element: <PagePersonal/>
+      element: <PagePersonal />,
     },
     {
       path: "PageAluno",
-      element: <PageCliente/>
-    }
+      element: <PageCliente />,
+    },
+    {
+      path: "NovosClientes",
+      element: <SectionNovosClientes />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
 };
-

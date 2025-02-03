@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Breakpoints } from "../../../../../styles/BreakPoints";
+import { Breakpoints } from "../../../styles/BreakPoints";
 
 // Variaveis de Cores
 const colors = {
