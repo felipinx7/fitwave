@@ -36,7 +36,6 @@ export const textNotificacao = styled.p`
 `;
 
 export const containerData = styled.div`
-  width: 20%;
   height: 100%;
 `;
 

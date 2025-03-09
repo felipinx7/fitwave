@@ -1,0 +1,146 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  id  Int @id @default(autoincrement())
+  email String @unique
+  nome String
+  sobrenome String
+  telefone Float
+  senha Int
+  fotoPerfil String
+  diaPagamento DateTime
+  categoria NivelCategoria
+  sexo TipoSexo
+  altura Float
+  peso Float
+  focoAreaCorpo FocoCorpo
+  objetivo ObjetivoCorpo
+  TreinoSemanal Int
+  treinos Treinos[]
+  historico HistoricoTreinos[]
+
+
+  @@map("users")
+}
+
+model Administrador {
+  id Int @id @default(autoincrement())
+  nome String
+  sobrenome String
+  email String
+  telefone Float
+  categoria CategoriaFuncionario
+}
+
+model Personal {
+  id Int @id @default(autoincrement())
+  nome String
+  sobrenome String
+  email String
+  telefone Float
+  categoria CategoriaFuncionario
+}
+
+model Treinos {
+  id Int @id @default(autoincrement())
+  exercicio Exercicio @relation(fields: [exercicioId], references: [id], onDelete: Cascade)
+  usuario Cliente @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  exercicioId Int
+  usuarioId Int
+  foto String
+  descricao String
+  categoria CategoriaTreino
+  qtdSerie Int
+  repeticoesSerie Int
+  intervaloTempo Int
+  duracao Int
+  volume Float
+  calorias Float
+  historico HistoricoTreinos[]
+}
+
+model Exercicio {
+  id Int @id @default(autoincrement())
+  foto String
+  nome String
+  descricao String
+  categoria CategoriaExercicio
+  treinos Treinos[]
+}
+
+model HistoricoTreinos {
+  id Int @id @default(autoincrement())
+  cliente Cliente @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  treino Treinos @relation(fields: [treinoId], references: [id])
+  usuarioId Int
+  treinoId Int
+  dataTreino DateTime @default(now())
+}
+
+// ENUM CLIENTE
+
+enum NivelCategoria {
+  Iniciante
+  Intermediario
+  Avancado
+}
+
+enum FocoCorpo {
+  CorpoTodo
+  Braco
+  Peito
+  Abdomen
+  Perna
+}
+
+enum TipoSexo {
+  Masculino
+  Feminino
+}
+
+enum ObjetivoCorpo {
+  Emagrecer
+  GanharMassar
+  ManterForma
+}
+
+// ENUM ADMIN
+
+enum CategoriaFuncionario {
+  Administrador
+  Personal
+}
+
+// ENUM TREINO 
+
+enum CategoriaTreino {
+  Cardio
+  Gluteos
+  Perna
+  Costa
+  Peitoral
+}
+
+enum CategoriaExercicio {
+  Cardio
+  Gluteos
+  Perna
+  Costa
+  Peitoral
+  Braco
+}
+
+
+
+
+

@@ -38,7 +38,7 @@ export const ContainerTextosPrincipais = styled.div`
   align-items: center;
   text-align: center;
   width: 100%;
-  line-height: 1;
+  line-height: 1.4;
   flex-direction: column;
   height: auto;
 `;

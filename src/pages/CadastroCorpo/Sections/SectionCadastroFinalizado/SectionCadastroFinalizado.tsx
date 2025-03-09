@@ -10,11 +10,11 @@ export const SectionCadastroFinalizado: React.FC = () => {
 
   const progresso = (etapa / (etapastotais - 1)) * 100;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const LinkParaLaddinPage = () =>{
-    navigate("/")
-  }
+  const LinkParaSistema = () => {
+    navigate("/PageAluno");
+  };
   return (
     <S.SectionCadastroFinalizado>
       <BarraDeProgresso progresso={progresso} />
@@ -26,12 +26,15 @@ export const SectionCadastroFinalizado: React.FC = () => {
               Cadastro finalizado!
             </S.TextCadastroFinalizado>
             <S.ParagrafoAguarde>
-              Aguarde a equipe Fitwave entrar em contato.
+              Alcance seus objetivos e transforme seu corpo. <br />
+              Vamos nessa!
             </S.ParagrafoAguarde>
           </S.ContainerTextosPrincipais>
         </S.ContainerContentMain>
 
-        <S.ButtonFinalizar onClick={LinkParaLaddinPage}>FINALIZAR</S.ButtonFinalizar>
+        <S.ButtonFinalizar onClick={LinkParaSistema}>
+          FINALIZAR
+        </S.ButtonFinalizar>
       </S.ContainerInfoPrincipais>
     </S.SectionCadastroFinalizado>
   );

@@ -1,10 +1,28 @@
 import React, { useRef, useState } from "react";
 import * as S from "./styles";
 import { FaUserCircle, FaCamera } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export const SectionInfoLogin: React.FC = () => {
   const [foto, setFoto] = useState<string | null>(null);
   const inputFotoRef = useRef<HTMLInputElement>(null);
+  const [nome, setnome] = useState("");
+  const [sobrenome, setsobrenome] = useState("");
+
+  const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setFoto(reader.result as string);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const navigate = useNavigate()
+
+  const linkCadastroCorpo = () =>{
+    navigate("/CadastroCorpo")
+  }
 
   return (
     <S.SectionLoginInfo>
@@ -16,14 +34,7 @@ export const SectionInfoLogin: React.FC = () => {
               ref={inputFotoRef}
               type="file"
               accept="image/*"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (file) {
-                  const reader = new FileReader();
-                  reader.onloadend = () => setFoto(reader.result as string);
-                  reader.readAsDataURL(file);
-                }
-              }}
+              onChange={handleFotoChange}
               style={{ display: "none" }}
             />
             <div
@@ -78,16 +89,24 @@ export const SectionInfoLogin: React.FC = () => {
 
         <S.ContainerInfoInputs>
           <S.LabelInput>Nome</S.LabelInput>
-          <S.InputLogin type="text" placeholder="Digite seu nome" required />
+          <S.InputLogin
+            type="text"
+            placeholder="Digite seu nome"
+            value={nome}
+            onChange={(e) => setnome(e.target.value)}
+            required
+          />
 
           <S.LabelInput>Sobrenome</S.LabelInput>
           <S.InputLogin
             type="text"
             placeholder="Digite seu sobrenome"
             required
+            onChange={(e) => setsobrenome(e.target.value)}
+            value={sobrenome}
           />
           <S.ContainerButton>
-            <S.ButtonProsseguir type="submit">Prosseguir</S.ButtonProsseguir>
+            <S.ButtonProsseguir type="submit" onClick={linkCadastroCorpo}>Prosseguir</S.ButtonProsseguir>
           </S.ContainerButton>
         </S.ContainerInfoInputs>
       </S.FormInfoLogin>

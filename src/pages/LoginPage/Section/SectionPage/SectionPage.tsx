@@ -16,7 +16,7 @@ export const SectionPage: React.FC = () => {
   const navigate = useNavigate()
 
   const LinkParaPagePreload = () =>{
-    navigate("/PagePersonal")
+    navigate("/LoginInfo")
   }
 
 
@@ -74,7 +74,7 @@ export const SectionPage: React.FC = () => {
             </S.ContainerButton>
             <S.TextNaotemconta>
               Aida não tem uma conta?
-              <S.SpanNaoTemConta>Etrar em contato.</S.SpanNaoTemConta>
+              <S.SpanNaoTemConta>Entrar em contato.</S.SpanNaoTemConta>
             </S.TextNaotemconta>
           </S.ContainerInformacaoParteBaixo>
         </S.FormularioLogin>

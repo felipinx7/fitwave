@@ -7,9 +7,10 @@ export const SectionCadastro = styled.section`
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 100vh;
+  height: auto;
   background-color: black;
   background-repeat: no-repeat;
+  padding: 5rem 0;
 
   @media ${Breakpoints.lg} {
     height: auto;

@@ -1,41 +1,30 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useState } from "react";
 
-const Checkbox = () => {
-  const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10.9, 80, 40, 20];
-  const numerosMaiorQueTres = numeros.filter((num) => num > 5);
+const dados = [
+  { id: 1, nome: "Maçã", categoria: "Vermelha" },
+  { id: 2, nome: "Banana", categoria: "Amarela" },
+  { id: 3, nome: "Morango", categoria: "Vermelha" },
+  { id: 4, nome: "Limão", categoria: "Verde" },
+  { id: 5, nome: "Abacaxi", categoria: "Amarela" },
+  { id: 6, nome: "Kiwi", categoria: "Verde" },
+];
 
-  const [nomePessoas, setNomePessoas] = useState([]); // Inicializar como array
-
-  useEffect(() => {
-    fetch("https://instafakeapi.com/api/v1/fake/people")
-      .then((response) => response.json())
-      .then((data) => {
-        // Assumindo que a API retorna um array de objetos com o campo `name`
-        setNomePessoas(data.data); // Ajuste o nome da chave conforme necessário
-      })
-      .catch((err) => console.log(err));
-  }, []);
+export default function FiltroTreinos() {
+  const [ValorInput , setValorInput ] = useState("")
 
   return (
     <div>
-      <h3>Números maiores que 5:</h3>
-      <ul>
-        {numerosMaiorQueTres.map((num, index) => (
-          <li key={index}>{num}</li>
-        ))}
-      </ul>
+      <select name="" id="">
+        <option value="Todos">Todas as Frutas</option>
+        <option value="Amarela">Banana</option>
+        <option value="Maçã">Maçãs</option>
+        <option value="Verde">Pêras</option>
+      </select>
 
-      <h3>Nomes de pessoas:</h3>
-      <ul>
-        {nomePessoas.map((person, index) => (
-          <li key={index}>
-            {person} {/* Assumindo que a chave do nome seja 'name' */}
-          </li>
-        ))}
-      </ul>
+      <br />
+      <br />
+      <br />
+      {}
     </div>
   );
-};
-
-export default Checkbox;
+}

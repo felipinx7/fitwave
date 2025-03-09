@@ -11,7 +11,7 @@ export const ButtonTreinar: React.FC = () => {
 
   return (
     <>
-      <S.ButtonTreinar onClick={handleCadastroClick}>
+      <S.ButtonTreinar type="submit" onClick={handleCadastroClick}>
         QUERO TREINAR AGORA
       </S.ButtonTreinar>
     </>
